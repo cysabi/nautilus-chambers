@@ -1,0 +1,6 @@
+[style]
+
+based_on_style = pep8
+dedent_closing_brackets = true
+ALLOW_MULTILINE_LAMBDAS = false
+BLANK_LINE_BEFORE_NESTED_CLASS_OR_DEF = true
