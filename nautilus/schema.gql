@@ -1,0 +1,21 @@
+# Replace 'My' with actual objects
+
+schema {
+  query: Queries
+  mutation: Mutations
+}
+
+type Queries {
+  my(
+    after: String,
+    before: String,
+    first: Int,
+    last: Int
+  ): MyConnection
+}
+
+type Mutations {
+  createMy(
+    input: CreateMyInput!
+  ): CreateMyPayload!
+}
