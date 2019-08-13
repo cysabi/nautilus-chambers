@@ -1,21 +1,195 @@
-# Replace 'My' with actual objects
-
-schema {
-  query: Queries
-  mutation: Mutations
-}
-
-type Queries {
-  my(
-    after: String,
-    before: String,
-    first: Int,
+type Constellation implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime
+  name: String
+  galaxies(
+    """Cursor"""
+    after: String
+    """Cursor"""
+    before: String
+    """Give me first n results"""
+    first: Int = 10
+    """Give me last n results"""
     last: Int
-  ): MyConnection
+  ): GalaxyConnection
 }
-
-type Mutations {
-  createMy(
-    input: CreateMyInput!
-  ): CreateMyPayload!
+type ConstellationConnection {
+  nodes: [Constellation]
+  edges: [ConstellationEdge]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+type ConstellationEdge {
+  cursor: String!
+  node: Constellation
+}
+input CreateConstellationInput {
+  name: String!
+}
+type CreateConstellationPayload {
+  constellation: Constellation
+}
+type CreateConstellationsPayload {
+  constellations: [Constellation]
+}
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the
+date-time format outlined in section 5.6 of the RFC 3339 profile of the ISO
+8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+type Galaxy implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime
+  name: String
+  planets(
+    """Cursor"""
+    after: String
+    """Cursor"""
+    before: String
+    """Give me first n results"""
+    first: Int = 10
+    """Give me last n results"""
+    last: Int
+  ): PlanetConnection
+  stars(
+    """Cursor"""
+    after: String
+    """Cursor"""
+    before: String
+    """Give me first n results"""
+    first: Int = 10
+    """Give me last n results"""
+    last: Int
+  ): StarConnection
+}
+type GalaxyConnection {
+  nodes: [Galaxy]
+  edges: [GalaxyEdge]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+type GalaxyEdge {
+  cursor: String!
+  node: Galaxy
+}
+type Mutation {
+  createConstellation(input: CreateConstellationInput!): CreateConstellationPayload
+  createConstellations(input: [CreateConstellationInput!]!): CreateConstellationsPayload
+}
+"""An object with an ID"""
+interface Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+type PageInfo {
+  endCursor: String
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+}
+type Planet implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime
+  name: String
+  description: String
+  planetType: PlanetTypeEnum
+  galaxy: Galaxy
+}
+type PlanetConnection {
+  nodes: [Planet]
+  edges: [PlanetEdge]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+type PlanetEdge {
+  cursor: String!
+  node: Planet
+}
+enum PlanetTypeEnum {
+  DOUBLE_PLANET
+  DWARF_PLANET
+  EXOPLANET
+  EXTRAGALACTIC
+  MAJOR_PLANET
+  OUTER_PLANET
+  PULSAR_PLANET
+  ROGUE_PLANET
+}
+type Query {
+  galaxies(
+    """Cursor"""
+    after: String
+    """Cursor"""
+    before: String
+    """Give me first n results"""
+    first: Int = 10
+    """Give me last n results"""
+    last: Int
+  ): GalaxyConnection
+  constellations(
+    """Cursor"""
+    after: String
+    """Cursor"""
+    before: String
+    """Give me first n results"""
+    first: Int = 10
+    """Give me last n results"""
+    last: Int
+  ): ConstellationConnection
+  planets(
+    """Cursor"""
+    after: String
+    """Cursor"""
+    before: String
+    """Give me first n results"""
+    first: Int = 10
+    """Give me last n results"""
+    last: Int
+    planetType: PlanetTypeEnum
+  ): PlanetConnection
+  stars(
+    """Cursor"""
+    after: String
+    """Cursor"""
+    before: String
+    """Give me first n results"""
+    first: Int = 10
+    """Give me last n results"""
+    last: Int
+  ): StarConnection
+  """Fetches an object given its ID"""
+  node(
+    """The ID of the object"""
+    id: ID!
+  ): Node
+}
+type Star implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime
+  name: String
+  class: StellarClassEnum
+}
+type StarConnection {
+  nodes: [Star]
+  edges: [StarEdge]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+type StarEdge {
+  cursor: String!
+  node: Star
+}
+enum StellarClassEnum {
+  CLASS_0
+  CLASS_A
+  CLASS_B
+}
+type Subscription {
+  constellations: [Constellation]
 }
