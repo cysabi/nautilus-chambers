@@ -16,12 +16,12 @@ def resolve_level(obj, info):
 
 @status_type.field("rank")
 def resolve_rank(obj, info):
-    return
+    return obj
 
 
 @status_type.field("gear")
 def resolve_gear(obj, info):
-    return
+    return obj
 
 
 @status_type.field("loadouts")

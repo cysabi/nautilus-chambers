@@ -11,14 +11,14 @@ def resolve_weapon(obj, info):
 
 @gear_type.field("head")
 def resolve_head(obj, info):
-    return
+    return obj
 
 
 @gear_type.field("clothes")
 def resolve_clothes(obj, info):
-    return
+    return obj
 
 
 @gear_type.field("shoes")
 def resolve_shoes(obj, info):
-    return
+    return obj

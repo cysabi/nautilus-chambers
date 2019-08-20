@@ -6,9 +6,9 @@ profile_type = ObjectType("Profile")
 
 @profile_type.field("meta")
 def resolve_meta(obj, info):
-    return
+    return obj
 
 
 @profile_type.field("status")
 def resolve_status(obj, info):
-    return
+    return obj

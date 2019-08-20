@@ -11,4 +11,4 @@ def resolve_name(obj, info):
 
 @wear_type.field("abilities")
 def resolve_abilities(obj, info):
-    return
+    return obj
