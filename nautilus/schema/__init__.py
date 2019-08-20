@@ -10,15 +10,6 @@ from .profile import profile_type
 from .query import query_type
 
 bindables = [
-    abilities_type,
-    wear_type,
-    rank_type,
-    gear_type,
-    meta_type,
-    status_type,
-    profile_type,
-    query_type
-]  # yapf: disable
-
-types = load_schema_from_path("nautilus/schema/.graphql")
-schema = make_executable_schema(types, bindables)
+    abilities_type, wear_type, rank_type, gear_type, meta_type, status_type,
+    profile_type, query_type
+]

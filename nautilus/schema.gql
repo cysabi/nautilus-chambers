@@ -1,8 +1,0 @@
-type Greeting {
-    words: String!
-    person: String!
-}
-
-type Query {
-    greet(name: String!): Greeting!
-}

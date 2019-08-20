@@ -1,20 +1,6 @@
-from ariadne import ObjectType, make_executable_schema, load_schema_from_path
-from flask import Flask
 import pymongo
-
-# Araidne
-types = load_schema_from_path("nautilus/schema.gql")
-
-query = ObjectType("Query")
-greeting = ObjectType("Greeting")
-
-from nautilus import resolvers
-
-schema = make_executable_schema(types, [query, greeting])
-
-# Flask
-app = Flask(__name__)
-from nautilus import routes
+from ariadne import load_schema_from_path, make_executable_schema
+from flask import Flask
 
 
 # PyMongo
@@ -27,3 +13,12 @@ class DBHandler:
 
 
 dbh = DBHandler()
+
+# Araidne
+from .schema import bindables
+types = load_schema_from_path("nautilus/schema/.graphql")
+schema = make_executable_schema(types, bindables)
+
+# Flask
+app = Flask(__name__)
+from nautilus import routes

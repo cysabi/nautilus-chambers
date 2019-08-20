@@ -55,5 +55,6 @@ input ProfileInput {
 # Root
 type Query {
     profiles(input: ProfileInput): [Profile]!
+    test: Profile
     # TODO: Pagination and stuff
 }
