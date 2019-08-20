@@ -1,0 +1,59 @@
+# Wear
+type Abilities {
+    main: String!
+    subs: [String]!
+
+}
+# Gear
+type Wear {
+    name: String!
+    abilities: Abilities!
+}
+# Status
+type Rank {
+    sz: String
+    rm: String
+    tc: String
+    cb: String
+    sr: String
+}
+
+type Gear {
+    weapon: String!
+    head: Wear!
+    clothes: Wear!
+    shoes: Wear!
+}
+
+# Profile
+type Meta {
+    id: ID!
+    discord: Int
+    twitter: String
+}
+
+type Status {
+    ign: String!
+    level: Int!
+    rank: Rank!
+    gear: Gear!
+    loadouts: [Gear!]
+}
+
+# Query
+type Profile {
+    meta: Meta!
+    status: Status!
+}
+
+input ProfileInput {
+    id: ID
+    discord: Int
+    twitter: String
+}
+
+# Root
+type Query {
+    profiles(input: ProfileInput): [Profile]!
+    # TODO: Pagination and stuff
+}
