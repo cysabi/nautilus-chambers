@@ -4,11 +4,6 @@ from nautilus import dbh
 meta_type = ObjectType("Meta")
 
 
-@meta_type.field("id")
-def resolve_id(obj, info):
-    return obj.id
-
-
 @meta_type.field("discord")
 def resolve_discord(obj, info):
     return 571494333090496514

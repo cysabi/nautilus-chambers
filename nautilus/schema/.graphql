@@ -27,8 +27,7 @@ type Gear {
 
 # Profile
 type Meta {
-    id: ID!
-    discord: Int
+    discord: ID
     twitter: String
 }
 
@@ -42,18 +41,17 @@ type Status {
 
 # Query
 type Profile {
+    id: ID!
     meta: Meta!
     status: Status!
 }
 
 input ProfileInput {
-    id: ID
-    discord: Int
-    twitter: String
+    id: ID!
 }
 
 # Root
 type Query {
-    profiles: Profile!
+    profile(input: ProfileInput): Profile!
     # TODO: Pagination and stuff
 }

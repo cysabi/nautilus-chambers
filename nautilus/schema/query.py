@@ -4,6 +4,6 @@ from nautilus import dbh
 query_type = QueryType()
 
 
-@query_type.field("profiles")
+@query_type.field("profile")
 def resolve_profiles(obj, info, **kwargs):
     return kwargs
