@@ -6,9 +6,9 @@ meta_type = ObjectType("Meta")
 
 @meta_type.field("discord")
 def resolve_discord(obj, info):
-    return 571494333090496514
+    return dbh.get_field(obj, info)
 
 
 @meta_type.field("twitter")
 def resolve_twitter(obj, info):
-    return None
+    return dbh.get_field(obj, info)

@@ -6,9 +6,9 @@ CLASSTYPE_type = ObjectType("CLASS")
 
 @CLASSTYPE_type.field("FIELD")
 def resolve_FIELD(obj, info):
-    return FIELDRET
+    return dbh.get_field(obj, info)
 
 
 @CLASSTYPE_type.field("FIELD")
 def resolve_FIELD(obj, info):
-    return FIELDRET
+    return dbh.pass_field(obj, info)

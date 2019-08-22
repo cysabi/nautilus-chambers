@@ -6,24 +6,24 @@ rank_type = ObjectType("Rank")
 
 @rank_type.field("sz")
 def resolve_sz(obj, info):
-    return "S+9"
+    return dbh.get_field(obj, info)
 
 
 @rank_type.field("rm")
 def resolve_rm(obj, info):
-    return "X2144"
+    return dbh.get_field(obj, info)
 
 
 @rank_type.field("tc")
 def resolve_tc(obj, info):
-    return "A-"
+    return dbh.get_field(obj, info)
 
 
 @rank_type.field("cb")
 def resolve_cb(obj, info):
-    return "B+"
+    return dbh.get_field(obj, info)
 
 
 @rank_type.field("sr")
 def resolve_sr(obj, info):
-    return "Profreshional"
+    return dbh.get_field(obj, info)

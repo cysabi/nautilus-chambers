@@ -41,13 +41,13 @@ type Status {
 
 # Query
 type Profile {
-    id: ID!
+    _id: ID!
     meta: Meta!
     status: Status!
 }
 
 input ProfileInput {
-    id: ID!
+    _id: ID!
 }
 
 # Root

@@ -1,4 +1,3 @@
-import pymongo
 from ariadne import load_schema_from_path, make_executable_schema
 from flask import Flask
 
