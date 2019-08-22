@@ -9,7 +9,7 @@ class DBHandler:
         self.col = self.db["profiles"]
 
     def get_field(self, obj, info):
-        parents = self.get_path([], info.path)[1:]
+        parents = self.get_path(info.path)[1:]
         result = self.col.find_one(
             obj["input"], {
                 "_id": 0,
@@ -23,8 +23,9 @@ class DBHandler:
     def pass_field(self, obj, info):
         return obj
 
-    def get_path(self, parents, info_path):
+    def get_path(self, info_path, parents=None):
+        parents = parents if parents else []
         parents.insert(0, info_path.key)
         if info_path.prev:
-            self.get_path(parents, info_path.prev)
+            self.get_path(info_path.prev, parents)
         return parents
