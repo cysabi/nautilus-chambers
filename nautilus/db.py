@@ -27,3 +27,8 @@ class DBHandler:
         if 'profile' in parents:
             parents = parents[parents.index('profile') + 1:]
         return parents
+
+    @staticmethod
+    def replace_id(dict_to_parse):
+        dict_to_parse['_id'] = dict_to_parse.pop('id')
+        return dict_to_parse
