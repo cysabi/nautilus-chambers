@@ -1,0 +1,18 @@
+# Mutation
+input ProfileInput {
+    fail: Boolean
+    ign: String
+    level: Int
+}
+
+type ProfilePayload{
+    status: Boolean!
+    error: String
+    profile: Profile
+}
+
+# Root
+type Mutation {
+    createProfile(input: ProfileInput!): ProfilePayload
+    updateProfile(id: ID!, input: ProfileInput!): ProfilePayload
+}

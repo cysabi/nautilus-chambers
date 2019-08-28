@@ -46,26 +46,8 @@ type Profile {
     status: Status!
 }
 
-# Mutation
-input ProfileInput {
-    fail: Boolean
-    ign: String
-    level: Int
-}
-
-type ProfilePayload{
-    status: Boolean!
-    error: String
-    profile: Profile
-}
-
 # Root
 type Query {
     profile(id: ID!): Profile!
     # TODO: Pagination and stuff
-}
-
-type Mutation {
-    createProfile(input: ProfileInput!): ProfilePayload
-    updateProfile(id: ID!, input: ProfileInput!): ProfilePayload
 }
