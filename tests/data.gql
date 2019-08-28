@@ -1,0 +1,44 @@
+query {
+  profile(id: 1) {
+    id
+    meta {
+      discord
+      twitter
+    }
+    status {
+      ign
+      level
+      rank {
+        sz
+        rm
+        tc
+        cb
+        sr
+      }
+      gear {
+        weapon
+        head {
+          name
+          abilities {
+            main
+            subs
+          }
+        }
+        clothes {
+          name
+          abilities {
+            main
+            subs
+          }
+        }
+        shoes {
+          name
+          abilities {
+            main
+            subs
+          }
+        }
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@ from nautilus import dbh
 profile_type = ObjectType("Profile")
 
 
-@profile_type.field("_id")
+@profile_type.field("id")
 def resolve_id(obj, info):
     return dbh.get_field(obj, info)
 

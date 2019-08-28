@@ -41,17 +41,31 @@ type Status {
 
 # Query
 type Profile {
-    _id: ID!
+    id: ID!
     meta: Meta!
     status: Status!
 }
 
+# Mutation
 input ProfileInput {
-    _id: ID!
+    fail: Boolean
+    ign: String
+    level: Int
+}
+
+type ProfilePayload{
+    status: Boolean!
+    error: String
+    profile: Profile
 }
 
 # Root
 type Query {
-    profile(input: ProfileInput): Profile!
+    profile(id: ID!): Profile!
     # TODO: Pagination and stuff
+}
+
+type Mutation {
+    createProfile(input: ProfileInput!): ProfilePayload
+    updateProfile(id: ID!, input: ProfileInput!): ProfilePayload
 }

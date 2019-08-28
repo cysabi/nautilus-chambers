@@ -10,12 +10,7 @@ class DBHandler:
 
     def get_field(self, obj, info):
         parents = self.get_path(info.path)[1:]
-        result = self.col.find_one(
-            obj["input"], {
-                "_id": 0,
-                ".".join(parents): 1
-            }
-        )
+        result = self.col.find_one(obj, {"_id": 0, ".".join(parents): 1})
         for key in parents:
             result = result[key]
         return result
@@ -25,7 +20,8 @@ class DBHandler:
 
     def get_path(self, info_path, parents=None):
         parents = parents if parents else []
-        parents.insert(0, info_path.key)
+        key = '_id' if info_path.key == 'id' else info_path.key
+        parents.insert(0, key)
         if info_path.prev:
             self.get_path(info_path.prev, parents)
         return parents
