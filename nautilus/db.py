@@ -9,7 +9,7 @@ class DBHandler:
         self.col = self.db["profiles"]
 
     def get_field(self, obj, info):
-        parents = self.get_path(info.path)[1:]
+        parents = self.get_path(info.path)
         result = self.col.find_one(obj, {"_id": 0, ".".join(parents): 1})
         for key in parents:
             result = result[key]
@@ -24,4 +24,6 @@ class DBHandler:
         parents.insert(0, key)
         if info_path.prev:
             self.get_path(info_path.prev, parents)
+        if 'profile' in parents:
+            parents = parents[parents.index('profile') + 1:]
         return parents
