@@ -13,7 +13,7 @@ The API can be used by discord bots, analytics, or anything else you can think o
 - Syncronized user data from anywhere, no matter the product.
 
 ## Usage
-_Documentation can be found at https://leptospira.github.io/nautilus-chambers._
+_Documentation can be found at https://github.lepto.tech/nautilus-chambers._
 ```python
 """A Python usage example."""
 import requests
