@@ -9,6 +9,11 @@ def resolve_ign(obj, info):
     return dbh.get_field(obj, info)
 
 
+@status_type.field("sw")
+def resolve_ign(obj, info):
+    return dbh.get_field(obj, info)
+
+
 @status_type.field("level")
 def resolve_level(obj, info):
     return dbh.get_field(obj, info)
