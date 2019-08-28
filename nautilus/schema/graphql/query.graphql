@@ -4,11 +4,13 @@ type Abilities {
     subs: [String]!
 
 }
+
 # Gear
 type Wear {
     name: String!
-    abilities: Abilities!
+    abilities: Abilities
 }
+
 # Status
 type Rank {
     sz: String
@@ -19,10 +21,10 @@ type Rank {
 }
 
 type Gear {
-    weapon: String!
-    head: Wear!
-    clothes: Wear!
-    shoes: Wear!
+    weapon: String
+    head: Wear
+    clothes: Wear
+    shoes: Wear
 }
 
 # Profile
@@ -32,17 +34,18 @@ type Meta {
 }
 
 type Status {
-    ign: String!
-    level: Int!
-    rank: Rank!
-    gear: Gear!
+    ign: String
+    sw: Int
+    level: Int
+    rank: Rank
+    gear: Gear
     loadouts: [Gear!]
 }
 
 # Query
 type Profile {
     id: ID!
-    meta: Meta!
+    meta: Meta
     status: Status!
 }
 
