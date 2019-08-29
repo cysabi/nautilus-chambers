@@ -1,13 +1,13 @@
 # Wear
 type Abilities {
-    main: String!
-    subs: [String]!
+    main: String
+    subs: [String]
 
 }
 
 # Gear
 type Wear {
-    name: String!
+    name: String
     abilities: Abilities
 }
 
@@ -45,8 +45,8 @@ type Status {
 # Query
 type Profile {
     id: ID!
-    meta: Meta!
-    status: Status!
+    meta: Meta
+    status: Status
 }
 
 # Root
