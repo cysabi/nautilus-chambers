@@ -1,7 +1,8 @@
-import pymongo
 from json import loads
-from bson.objectid import ObjectId
+
+import pymongo
 from bson.errors import InvalidId
+from bson.objectid import ObjectId
 
 
 class DBHandler:
