@@ -14,4 +14,6 @@ def resolve_update_profile(*_, **kwargs):
     return dbh.update_profile(kwargs)
 
 
-    return {'status': True, 'profile': filter}
+@mutation_type.field("deleteProfile")
+def resolve_update_profile(*_, **kwargs):
+    return dbh.delete_profile(kwargs)
