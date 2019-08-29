@@ -1,4 +1,7 @@
 import pymongo
+from json import loads
+from bson.objectid import ObjectId
+from bson.errors import InvalidId
 
 
 class DBHandler:
@@ -28,23 +31,47 @@ class DBHandler:
             parents = parents[parents.index('profile') + 1:]
         return parents
 
+    def create_profile(self, kwargs):
+        query = {'_id': None}
+        profile = loads(self.empty_profile)
+
+        self.deepmerge(profile, kwargs['input'])
+        query['_id'] = self.col.insert_one(profile).inserted_id
+
+        return {'status': True, 'profile': query}
+
+    def update_profile(self, kwargs):
+        query = self.replace_id({'id': kwargs['id']})
+        profile = self.col.find_one(query)
+
+        self.deepmerge(profile, kwargs['input'])
+        self.col.replace_one(query, profile)
+
+        return {'status': True, 'profile': query}
+
+    def delete_profile(self, kwargs):
+        query = self.replace_id({'id': kwargs['id']})
+
+        self.col.delete_one(query)
+
+        return {'status': True}
+
+    @classmethod
+    def deepmerge(cls, a, b):
+        for key, value in b.items():
+            a[key] = value if not isinstance(value, dict) \
+                else cls.deepmerge(a[key], value)
+        return a
+
     @staticmethod
     def replace_id(dict_to_parse):
-        dict_to_parse['_id'] = dict_to_parse.pop('id')
+        try:
+            key = ObjectId(dict_to_parse['id'])
+        except InvalidId:
+            key = dict_to_parse['id']
+
+        dict_to_parse['_id'] = key
+        dict_to_parse.pop('id')
         return dict_to_parse
 
-    @staticmethod
-    def update_profile(a: dict, b: dict) -> None:
-
-        def _process(_a: dict, _b: dict) -> None:
-
-            for key, value in _b.items():
-                if not isinstance(value, dict):
-                    _a[key] = value
-                else:
-                    if key not in _a:
-                        _a[key] = {}
-                    _process(_a[key], value)
-
-        _process(a, b)
-        return a
+    empty_profile = """{"meta":{"discord":null,"twitter":null},"status":{"gear":{"clothes":{"abilities":{"main":null,"subs":[null,null,null]},"name":null},"head":{"abilities":{"main":null,"subs":[null,null,null]},"name":null},"shoes":{"abilities":{"main":null,"subs":[null,null,null]},"name":null},"weapon":null},"ign":null,"level":null,"rank":{"cb":null,"rm":null,"sr":null,"sz":null,"tc":null}}}"""
