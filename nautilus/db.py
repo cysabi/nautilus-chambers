@@ -32,3 +32,19 @@ class DBHandler:
     def replace_id(dict_to_parse):
         dict_to_parse['_id'] = dict_to_parse.pop('id')
         return dict_to_parse
+
+    @staticmethod
+    def update_profile(a: dict, b: dict) -> None:
+
+        def _process(_a: dict, _b: dict) -> None:
+
+            for key, value in _b.items():
+                if not isinstance(value, dict):
+                    _a[key] = value
+                else:
+                    if key not in _a:
+                        _a[key] = {}
+                    _process(_a[key], value)
+
+        _process(a, b)
+        return a
