@@ -45,7 +45,7 @@ type Status {
 # Query
 type Profile {
     id: ID!
-    meta: Meta
+    meta: Meta!
     status: Status!
 }
 
