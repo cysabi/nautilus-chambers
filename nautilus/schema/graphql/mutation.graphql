@@ -38,7 +38,7 @@ input StatusInput {
     level: Int
     rank: RankInput
     gear: GearInput
-    loadouts: [GearInput]
+    # loadouts: [GearInput]
 }
 
 # Mutation

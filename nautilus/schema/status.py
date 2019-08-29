@@ -29,6 +29,6 @@ def resolve_gear(obj, info):
     return dbh.pass_field(obj, info)
 
 
-@status_type.field("loadouts")
-def resolve_loadouts(obj, info):
-    return dbh.get_field(obj, info)
+# @status_type.field("loadouts")
+# def resolve_loadouts(obj, info):
+#     return dbh.get_field(obj, info)

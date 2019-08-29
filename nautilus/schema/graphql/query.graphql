@@ -39,7 +39,7 @@ type Status {
     level: Int
     rank: Rank
     gear: Gear
-    loadouts: [Gear!]
+    # loadouts: [Gear]
 }
 
 # Query
