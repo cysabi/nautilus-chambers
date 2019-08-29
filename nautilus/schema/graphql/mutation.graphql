@@ -55,6 +55,7 @@ type ProfilePayload{
 
 # Root
 type Mutation {
-    createProfile(input: ProfileInput!): ProfilePayload!
+    createProfile(         input: ProfileInput!): ProfilePayload!
     updateProfile(id: ID!, input: ProfileInput!): ProfilePayload!
+    deleteProfile(id: ID!                      ): ProfilePayload!
 }
