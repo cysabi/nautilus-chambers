@@ -51,6 +51,6 @@ type Profile {
 
 # Root
 type Query {
-    profile(id: ID!): Profile!
+    readProfile(id: ID!): ProfilePayload
     # TODO: Pagination and stuff
 }

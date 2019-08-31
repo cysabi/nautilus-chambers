@@ -34,28 +34,62 @@ class DBHandler:
 
     def create_profile(self, kwargs):
         query = {'_id': None}
+        payload = {}
         profile = loads(self.empty_profile)
+        new_profile = kwargs['input']
 
-        self.deepmerge(profile, kwargs['input'])
-        query['_id'] = self.col.insert_one(profile).inserted_id
+        # Check for errors
+        if new_profile == profile or new_profile == {}:
+            payload['error'] = self.errors['empty']
 
-        return {'status': True, 'profile': query}
+        # All Good
+        else:
+            self.deepmerge(profile, new_profile)
+            query['_id'] = self.col.insert_one(profile).inserted_id
+            payload['profile'] = query
+
+        payload['status'] = True if not payload.get('error') else False
+        return payload
 
     def update_profile(self, kwargs):
         query = self.replace_id({'id': kwargs['id']})
+        payload = {}
         profile = self.col.find_one(query)
+        new_profile = kwargs['input']
 
-        self.deepmerge(profile, kwargs['input'])
-        self.col.replace_one(query, profile)
+        # Check for errors
+        if new_profile == profile or new_profile == {}:
+            payload['error'] = self.errors['empty']
+        elif profile is None:
+            payload['error'] = self.errors['missing']
 
-        return {'status': True, 'profile': query}
+        # All Good
+        else:
+            self.deepmerge(profile, new_profile)
+            self.col.replace_one(query, profile)
+            payload['profile'] = query
+
+        payload['status'] = True if not payload.get('error') else False
+        return payload
 
     def delete_profile(self, kwargs):
         query = self.replace_id({'id': kwargs['id']})
+        payload = {}
+        profile = self.doc_exists(query)
 
-        self.col.delete_one(query)
+        # Check for errors
+        if profile is None:
+            payload['error'] = self.errors['missing']
 
-        return {'status': True}
+        # All Good
+        else:
+            self.col.delete_one(query)
+
+        payload['status'] = True if not payload.get('error') else False
+        return payload
+
+    def doc_exists(self, query):
+        return self.col.find_one(query, {"_id": 1})
 
     @classmethod
     def deepmerge(cls, a, b):
@@ -76,3 +110,9 @@ class DBHandler:
         return dict_to_parse
 
     empty_profile = """{"meta":{"discord":null,"twitter":null},"status":{"gear":{"clothes":{"abilities":{"main":null,"subs":[null,null,null]},"name":null},"head":{"abilities":{"main":null,"subs":[null,null,null]},"name":null},"shoes":{"abilities":{"main":null,"subs":[null,null,null]},"name":null},"weapon":null},"ign":null,"level":null,"rank":{"cb":null,"rm":null,"sr":null,"sz":null,"tc":null}}}"""
+    errors = {
+        'missing':
+        "Profile either doesn't exist, or you do not have permission to see it",
+        'empty':
+        "Profile is empty, or isn't any different from current profile"
+    }

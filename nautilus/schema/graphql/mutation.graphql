@@ -48,7 +48,7 @@ input ProfileInput {
 }
 
 type ProfilePayload{
-    status: Boolean
+    status: Boolean!
     error: String
     profile: Profile
 }
