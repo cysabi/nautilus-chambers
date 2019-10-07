@@ -10,7 +10,7 @@ The API is for discord bots. For more information and support, you can join the 
 
 ## Features
 - Place to store user data without the need of your own database.
-- Syncronized user data from anywhere, no matter the product.
+- Syncronized user data from anywhere, no matter the bot.
 
 ## Usage
 _Documentation can be found at https://github.lepto.tech/nautilus-chambers._
