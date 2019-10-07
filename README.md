@@ -1,5 +1,5 @@
 # `nautilus-chambers`
-> Nautilus Chambers is a service/API for storing and synchronizing Splatoon 2 user profiles across discord bots.
+> Nautilus Chambers is a service/API for storing and synchronizing Splatoon 2 user profiles across multiple discord bots.
 
 ![Tags][tag-image]
 
