@@ -1,6 +1,4 @@
-from json import loads
-
-import pymongo
+import mongomock
 from bson.errors import InvalidId
 from bson.objectid import ObjectId
 
@@ -8,9 +6,9 @@ from bson.objectid import ObjectId
 class DBHandler:
 
     def __init__(self):
-        self.client = pymongo.MongoClient("mongodb://localhost:27017/")
-        self.db = self.client["nautilus-chambers"]
-        self.col = self.db["profiles"]
+        self.client = mongomock.MongoClient()
+        self.db = self.client.db
+        self.col = self.db.collection
 
     def get_field(self, obj, info):
         parents = self.get_path(info.path)
