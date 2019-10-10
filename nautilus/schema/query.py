@@ -5,15 +5,11 @@ query_type = QueryType()
 
 
 @query_type.field("readProfile")
-def resolve_profiles(*_, **kwargs):
-    kwargs = dbh.replace_id(kwargs)
-
-    if dbh.doc_exists(kwargs):
-        return {'status': True, 'profile': kwargs}
-
-    return {
-        'status': False,
-        'error':
-        'Profile either doesn\'t exist, or you do not have permission to see it',
-        'profile': None
-    }
+def resolve_read_profile(*_, **kwargs):
+    try:
+        return {
+            'status': True,
+            'profile': dbh.col.find_one({"discord": kwargs["discord"]})
+        }
+    except Exception as exc:
+        return {'status': False, 'error': exc, 'profile': None}
