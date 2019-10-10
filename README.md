@@ -1,16 +1,16 @@
 # `nautilus-chambers`
-> Nautilus Chambers is a service/API for storing and synchronizing Splatoon 2 user profiles across multiple platforms.
+> Nautilus Chambers is a service/API for storing and synchronizing Splatoon 2 user profiles across multiple discord bots.
 
 ![Tags][tag-image]
 
 A Public API/database holds Splatoon 2 profile data on users. It uses Python, GraphQL, Flask, and MongoDB.
-The API can be used by discord bots, analytics, or anything else you can think of. For more information and support, you can join the Discord *(link in the footnote of this readme)*.
+The API is for discord bots. For more information and support, you can join the Discord *(link in the footnote of this readme)*.
 
 <!-- ![Header Image](header-image.png) -->
 
 ## Features
 - Place to store user data without the need of your own database.
-- Syncronized user data from anywhere, no matter the product.
+- Syncronized user data from anywhere, no matter the bot.
 
 ## Usage
 _Documentation can be found at https://github.lepto.tech/nautilus-chambers._
