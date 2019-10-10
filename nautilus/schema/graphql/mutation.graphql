@@ -30,7 +30,6 @@ input GearInput {
 # Profile
 input MetaInput {
     discord: ID
-    twitter: String
 }
 
 input StatusInput {
@@ -43,6 +42,7 @@ input StatusInput {
 
 # Mutation
 input ProfileInput {
+    discord: ID!
     meta: MetaInput
     status: StatusInput
 }
@@ -55,7 +55,7 @@ type ProfilePayload{
 
 # Root
 type Mutation {
-    createProfile(         input: ProfileInput!): ProfilePayload!
-    updateProfile(id: ID!, input: ProfileInput!): ProfilePayload!
-    deleteProfile(id: ID!                      ): ProfilePayload!
+    createProfile(              input: ProfileInput!): ProfilePayload!
+    updateProfile(discord: ID!, input: ProfileInput!): ProfilePayload!
+    deleteProfile(discord: ID!                      ): ProfilePayload!
 }

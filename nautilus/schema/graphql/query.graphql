@@ -30,7 +30,6 @@ type Gear {
 # Profile
 type Meta {
     discord: ID
-    twitter: String
 }
 
 type Status {
@@ -44,13 +43,13 @@ type Status {
 
 # Query
 type Profile {
-    id: ID!
+    discord: ID!
     meta: Meta
     status: Status
 }
 
 # Root
 type Query {
-    readProfile(id: ID!): ProfilePayload
+    readProfile(discord: ID!): ProfilePayload
     # TODO: Pagination and stuff
 }
