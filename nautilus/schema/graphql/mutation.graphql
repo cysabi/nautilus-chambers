@@ -29,7 +29,7 @@ input GearInput {
 
 # Profile
 input MetaInput {
-    discord: ID
+    private: Boolean
 }
 
 input StatusInput {

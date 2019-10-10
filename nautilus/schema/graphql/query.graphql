@@ -29,7 +29,7 @@ type Gear {
 
 # Profile
 type Meta {
-    discord: ID
+    private: Boolean
 }
 
 type Status {
