@@ -26,7 +26,7 @@ import requests
 
 ## Footnote
 Find me - Discord: [`https://discord.gg/faUNrfP`](https://discord.gg/faUNrfP)   
-Support me - Patreon: [`https://www.patreon.com/leptospira`](https://www.patreon.com/leptoflare)  
+Support me - Patreon: [`https://www.patreon.com/leptoflare`](https://www.patreon.com/leptoflare)  
 
 As always, distributed under the MIT license. See `LICENSE` for more information.
 
