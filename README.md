@@ -26,12 +26,12 @@ import requests
 
 ## Footnote
 Find me - Discord: [`https://discord.gg/faUNrfP`](https://discord.gg/faUNrfP)   
-Support me - Patreon: [`https://www.patreon.com/leptospira`](https://www.patreon.com/leptospira)  
+Support me - Patreon: [`https://www.patreon.com/leptospira`](https://www.patreon.com/leptoflare)  
 
 As always, distributed under the MIT license. See `LICENSE` for more information.
 
-**[https://github.com/LeptoSpira/nautilus-chambers](https://github.com/LeptoSpira/nautilus-chambers)**
+**[https://github.com/LeptoFlare/nautilus-chambers](https://github.com/LeptoFlare/nautilus-chambers)**
 
 <!-- Markdown link & img dfn's -->
-[tag-image]: https://img.shields.io/github/license/LeptoSpira/nautilus-chambers.svg
-[example-output]: https://github.com/LeptoSpira/nautilus-chambers/example-output.png
+[tag-image]: https://img.shields.io/github/license/LeptoFlare/nautilus-chambers.svg
+[example-output]: https://github.com/LeptoFlare/nautilus-chambers/example-output.png
