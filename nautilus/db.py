@@ -19,33 +19,6 @@ class DatabaseHandler:
         self.db = self.client["nautilus"]
         self.profiles = self.db["profiles"]
 
-    def get_path(self, info_path, parents=None):
-        parents = parents if parents else []
-        parents.insert(0, info_path.key)
-        if info_path.prev:
-            self.get_path(info_path.prev, parents)
-        if 'profile' in parents:
-            parents = parents[parents.index('profile') + 1:]
-        return parents
-
-    @classmethod
-    def deepmerge(cls, a, b):
-        for key, value in b.items():
-            a[key] = value if not isinstance(value, dict) \
-                else cls.deepmerge(a[key], value)
-        return a
-
-    @staticmethod
-    def replace_id(dict_to_parse):
-        try:
-            key = ObjectId(dict_to_parse['discord'])
-        except InvalidId:
-            key = dict_to_parse['discord']
-
-        dict_to_parse['_id'] = key
-        dict_to_parse.pop('discord')
-        return dict_to_parse
-
     empty_profile = {
         "discord": None,
         "meta": {
