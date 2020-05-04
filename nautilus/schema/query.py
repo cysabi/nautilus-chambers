@@ -1,3 +1,4 @@
+"""Contains query resolvers."""
 from ariadne import QueryType
 from nautilus import dbh
 

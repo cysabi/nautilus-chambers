@@ -1,15 +1,15 @@
-from ariadne import ObjectType
-from nautilus import dbh
-import copy
+"""Contains mutation resolvers."""
+from ariadne import MutationType
+from nautilus import logger, dbh
 
-mutation_type = ObjectType("Mutation")
+mutation_type = MutationType()
 
 
 @mutation_type.field("createProfile")
 def resolve_create_profile(*_, **kwargs):
+    """mutation createProfile"""
+    profile = dbh.empty_profile.copy()
     payload = {}
-    profile = copy.deepcopy(dbh.empty_profile)
-    dbh.deepmerge(profile, kwargs['input'])
 
     # Check for errors
     if profile is None:
@@ -17,20 +17,19 @@ def resolve_create_profile(*_, **kwargs):
 
     # All Good
     else:
-        payload['profile'] = dbh.col.find_one(
-            {"_id": dbh.col.insert_one(profile).inserted_id}
-        )
-        print(payload['profile']["_id"])
-    payload['status'] = True if not payload.get('error') else False
+        profile.update(kwargs['input'])
+        payload['profile'] = dbh.profiles.insert_one(profile)
+        logger.debug(payload['profile']["_id"])
 
+    payload['status'] = True if not payload.get('error') else False
     return payload
 
 
 @mutation_type.field("updateProfile")
 def resolve_update_profile(*_, **kwargs):
+    """mutation updateProfile"""
+    profile = dbh.profiles.find_one(kwargs['discord'])
     payload = {}
-    profile = dbh.col.find_one(kwargs['discord'])
-    dbh.deepmerge(profile, kwargs['input'])
 
     # Check for errors
     if profile is None:
@@ -38,17 +37,18 @@ def resolve_update_profile(*_, **kwargs):
 
     # All Good
     else:
-        payload['profile'] = dbh.col.replace_one(kwargs['discord'], profile)
+        profile.update(kwargs['input'])
+        payload['profile'] = dbh.profiles.replace_one(kwargs['discord'], profile)
 
     payload['status'] = True if not payload.get('error') else False
-
     return payload
 
 
 @mutation_type.field("deleteProfile")
 def resolve_delete_profile(*_, **kwargs):
+    """mutation deleteProfile"""
+    profile = dbh.profiles.find_one(kwargs['discord'])
     payload = {}
-    profile = dbh.col.find_one(kwargs['discord'])
 
     # Check for errors
     if profile is None:
@@ -56,8 +56,7 @@ def resolve_delete_profile(*_, **kwargs):
 
     # All Good
     else:
-        dbh.col.delete_one(kwargs['discord'])
+        dbh.profiles.delete_one(kwargs['discord'])
 
     payload['status'] = True if not payload.get('error') else False
-
     return payload
