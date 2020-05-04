@@ -6,10 +6,11 @@ query_type = QueryType()
 
 @query_type.field("readProfile")
 def resolve_read_profile(*_, **kwargs):
+    """query readProfile"""
     try:
         return {
             'status': True,
-            'profile': dbh.col.find_one({"discord": kwargs["discord"]})
+            'profile': dbh.profiles.find_one({"discord": kwargs["discord"]})
         }
     except Exception as exc:
         return {'status': False, 'error': exc, 'profile': None}
