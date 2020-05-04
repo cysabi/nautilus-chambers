@@ -1,4 +1,5 @@
-from nautilus import app
+"""Run nautilus."""
+from nautilus import app, env
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=env.get('debug'))

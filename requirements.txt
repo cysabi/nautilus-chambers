@@ -1,3 +1,11 @@
-ariadne  # GraphQL
-flask  # Flask (Web Framework)
-pymongo  # MongoDB
+PyYAML
+
+# GraphQL
+ariadne
+
+# Flask
+flask
+
+# MongoDB
+pymongo
+mongomock
