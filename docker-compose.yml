@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+
+  nautilus:
+    build: .
+    image: nautilus-chambers:latest
+    restart: always
+
+  mongo:
+    image: mongo
+    restart: always
+    volumes:
+      - ./data/db:/data/db
