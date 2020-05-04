@@ -1,14 +1,23 @@
-import mongomock
+"""Set up database client."""
+from . import env, logger
+
+if env.get("debug"):
+    from mongomock import MongoClient
+else:
+    from pymongo import MongoClient
+
 from bson.errors import InvalidId
 from bson.objectid import ObjectId
 
 
-class DBHandler:
+class DatabaseHandler:
+    """Custom database handler that works with mongodb."""
 
     def __init__(self):
-        self.client = mongomock.MongoClient()
-        self.db = self.client.db
-        self.col = self.db.collection
+        self.client = MongoClient("mongodb://mongo:27017/")
+        logger.debug("New MongoClient has been created (port:27017).")
+        self.db = self.client["nautilus"]
+        self.profiles = self.db["profiles"]
 
     def get_path(self, info_path, parents=None):
         parents = parents if parents else []
@@ -40,7 +49,7 @@ class DBHandler:
     empty_profile = {
         "discord": None,
         "meta": {
-            "hidden": None
+            "private": None
         },
         "status": {
             "gear": {
@@ -84,3 +93,6 @@ class DBHandler:
         'empty':
         "Profile is empty, or isn't any different from current profile"
     }
+
+
+dbh = DatabaseHandler()

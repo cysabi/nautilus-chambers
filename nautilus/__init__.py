@@ -1,9 +1,10 @@
 from ariadne import load_schema_from_path, make_executable_schema
 from flask import Flask
+from .env import env
+from .log import logger
 
-# PyMongo
-from .db import DBHandler
-dbh = DBHandler()
+# MongoDB
+from .db import dbh
 
 # Araidne
 from .schema import bindables
