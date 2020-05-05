@@ -1,6 +1,6 @@
 """Contains mutation resolvers."""
 from ariadne import MutationType
-from nautilus import logger, dbh
+from nautilus import utils
 
 mutation_type = MutationType()
 
@@ -8,18 +8,18 @@ mutation_type = MutationType()
 @mutation_type.field("createProfile")
 def resolve_create_profile(*_, **kwargs):
     """mutation createProfile"""
-    profile = dbh.empty_profile.copy()
+    profile = utils.dbh.empty_profile.copy()
     payload = {}
 
     # Check for errors
     if profile is None:
-        payload['error'] = dbh.errors['missing']
+        payload['error'] = utils.dbh.errors['missing']
 
     # All Good
     else:
         profile.update(kwargs['input'])
-        payload['profile'] = dbh.profiles.insert_one(profile)
-        logger.debug(payload['profile']["_id"])
+        payload['profile'] = utils.dbh.profiles.insert_one(profile)
+        utils.logger.debug("createProfile ran. ID: " + payload['profile']["_id"])
 
     payload['status'] = True if not payload.get('error') else False
     return payload
@@ -28,17 +28,18 @@ def resolve_create_profile(*_, **kwargs):
 @mutation_type.field("updateProfile")
 def resolve_update_profile(*_, **kwargs):
     """mutation updateProfile"""
-    profile = dbh.profiles.find_one(kwargs['discord'])
+    profile = utils.dbh.profiles.find_one(kwargs['discord'])
     payload = {}
 
     # Check for errors
     if profile is None:
-        payload['error'] = dbh.errors['missing']
+        payload['error'] = utils.dbh.errors['missing']
 
     # All Good
     else:
         profile.update(kwargs['input'])
-        payload['profile'] = dbh.profiles.replace_one(kwargs['discord'], profile)
+        payload['profile'] = utils.dbh.profiles.replace_one(kwargs['discord'], profile)
+        utils.logger.debug("updateProfile ran. ID: " + payload['profile']["_id"])
 
     payload['status'] = True if not payload.get('error') else False
     return payload
@@ -47,16 +48,17 @@ def resolve_update_profile(*_, **kwargs):
 @mutation_type.field("deleteProfile")
 def resolve_delete_profile(*_, **kwargs):
     """mutation deleteProfile"""
-    profile = dbh.profiles.find_one(kwargs['discord'])
+    profile = utils.dbh.profiles.find_one(kwargs['discord'])
     payload = {}
 
     # Check for errors
     if profile is None:
-        payload['error'] = dbh.errors['missing']
+        payload['error'] = utils.dbh.errors['missing']
 
     # All Good
     else:
-        dbh.profiles.delete_one(kwargs['discord'])
+        profile = utils.dbh.profiles.delete_one(kwargs['discord'])
+        utils.logger.debug("deleteProfile ran. ID: " + profile["_id"])
 
     payload['status'] = True if not payload.get('error') else False
     return payload

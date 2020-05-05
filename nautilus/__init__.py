@@ -1,10 +1,7 @@
+"""Set up app and schema."""
 from ariadne import load_schema_from_path, make_executable_schema
 from flask import Flask
-from .env import env
-from .log import logger
-
-# MongoDB
-from .db import dbh
+from nautilus import utils
 
 # Araidne
 from .schema import bindables

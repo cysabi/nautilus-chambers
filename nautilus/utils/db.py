@@ -1,13 +1,10 @@
 """Set up database client."""
-from . import env, logger
+from . import env
 
 if env.get("debug"):
     from mongomock import MongoClient
 else:
     from pymongo import MongoClient
-
-from bson.errors import InvalidId
-from bson.objectid import ObjectId
 
 
 class DatabaseHandler:
@@ -15,7 +12,6 @@ class DatabaseHandler:
 
     def __init__(self):
         self.client = MongoClient("mongodb://mongo:27017/")
-        logger.debug("New MongoClient has been created (port:27017).")
         self.db = self.client["nautilus"]
         self.profiles = self.db["profiles"]
 
@@ -59,12 +55,6 @@ class DatabaseHandler:
                 "tc": None
             }
         }
-    }
-    errors = {
-        'missing':
-        "Profile either doesn't exist, or you do not have permission to see it",
-        'empty':
-        "Profile is empty, or isn't any different from current profile"
     }
 
 
