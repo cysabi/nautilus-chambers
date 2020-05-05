@@ -3,9 +3,9 @@
 
 def update(a, b):
     """Deepmerge dictionaries."""
-    b = b.copy()
     for key, value in b.items():
-        if not any(isinstance(i, dict) for i in b.values()):
-            a.update(b)
-        else:
+        if isinstance(value, dict):
             update(a[key], value)
+        else:
+            a[key] = value
+    return a
