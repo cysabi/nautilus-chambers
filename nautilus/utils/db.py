@@ -15,47 +15,50 @@ class DatabaseHandler:
         self.db = self.client["nautilus"]
         self.profiles = self.db["profiles"]
 
-    empty_profile = {
-        "discord": None,
-        "meta": {
-            "private": None
-        },
-        "status": {
-            "gear": {
-                "clothes": {
-                    "abilities": {
-                        "main": None,
-                        "subs": [None, None, None]
-                    },
-                    "name": None
-                },
-                "head": {
-                    "abilities": {
-                        "main": None,
-                        "subs": [None, None, None]
-                    },
-                    "name": None
-                },
-                "shoes": {
-                    "abilities": {
-                        "main": None,
-                        "subs": [None, None, None]
-                    },
-                    "name": None
-                },
-                "weapon": None
+    @staticmethod
+    def empty_profile():
+        """Create a new empty profile."""
+        return {
+            "discord": None,
+            "meta": {
+                "private": None
             },
-            "ign": None,
-            "level": None,
-            "rank": {
-                "cb": None,
-                "rm": None,
-                "sr": None,
-                "sz": None,
-                "tc": None
+            "status": {
+                "gear": {
+                    "clothes": {
+                        "abilities": {
+                            "main": None,
+                            "subs": [None, None, None]
+                        },
+                        "name": None
+                    },
+                    "head": {
+                        "abilities": {
+                            "main": None,
+                            "subs": [None, None, None]
+                        },
+                        "name": None
+                    },
+                    "shoes": {
+                        "abilities": {
+                            "main": None,
+                            "subs": [None, None, None]
+                        },
+                        "name": None
+                    },
+                    "weapon": None
+                },
+                "ign": None,
+                "level": None,
+                "rank": {
+                    "cb": None,
+                    "rm": None,
+                    "sr": None,
+                    "sz": None,
+                    "tc": None
+                }
             }
         }
-    }
 
 
 dbh = DatabaseHandler()
