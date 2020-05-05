@@ -9,15 +9,16 @@ Information surrounding these objects remain completely constant, and therefore,
 
 Instead, an ID representing the object is stored in the database.
 The IDs used are identical to the ones that can be found on [loadout.ink](https://github.com/selicia/selicia.github.io/tree/master/en_US/data)'s source catalog.
-In practice, I have compiled each relevant type [here](https://gist.github.com/LeptoFlare) for easy translation.
 
-Below are how these object types will be referred to on this page. They are stored as integers.
+In practice, I have compiled each type [here](https://gist.github.com/LeptoFlare), modified for easy conversion.
 
-- `IdHead`
-- `IdClothes`
-- `IdShoes`
-- `IdWeapon`
-- `IdAbility`
+Below are how these object types will be *referred* to on this page. They are stored as integers.
+
+- `intIdHead`
+- `intIdClothes`
+- `intIdShoes`
+- `intIdWeapon`
+- `intIdAbility`
 
 ### Ranks
 Ranks are stored as either an integer or a float.
@@ -51,9 +52,23 @@ If the rank is stored as an integer, it represents a standard rank as seen here:
 
 The integer representations used are identical to the ones found [here](https://oatmealdome.me/blog/an-in-depth-look-at-the-splatoon-2-ranking-system/).
 
-This object type will be referred to on this page as `IntRank`
+### Level
 
-## Database Collections
+Level is simply stored as an integer.
+
+`*levels` are represented by any number above 99. `100` represents `*1`. `105` represents `*6`
+
+### Sub Abilities
+
+Sub abilities are stored as an array containing `IdAbility`.
+
+There should be a maximum of 3 items in the array.
+
+If there are less than 3 items in the array, missing items are blank.
+
+`null` values represent abilities that are not blank, but not yet unlocked.
+
+## Database Collections	
 > The structure of the database and the relations between collections.
 
 Relations between collections will be referred to on this page like this: `ObjectId(collection)`.
@@ -71,27 +86,27 @@ Where `ObjectId` represents the `bson.ObjectId` class, with `collection` represe
         "sw": str,
         "level": int,
         "rank": {
-            "sz": IntRank,
-            "tc": IntRank,
-            "rm": IntRank,
-            "cb": IntRank,
-            "sr": IntRank,
+            "sz": int,
+            "tc": int,
+            "rm": int,
+            "cb": int,
+            "sr": int
         },
         "gear": {
-            "weapon": IdWeapon,
-            "head":    {"id": IdHead, "abilities": ObjectId(db.abilities)},
-            "clothes": {"id": IdClothes, "abilities": ObjectId(db.abilities)},
-            "shoes":   {"id": IdShoes, "abilities": ObjectId(db.abilities)}
+            "weapon": intIdWeapon,
+            "head": {
+                "id": intIdHead,
+                "abilities": {"main": intIdAbility, "subs": [intIdAbility]}
+            },
+            "clothes": {
+                "id": intIdClothes,
+                "abilities": {"main": intIdAbility, "subs": [intIdAbility]}
+            },
+            "shoes": {
+                "id": intIdShoes,
+                "abilities": {"main": intIdAbility, "subs": [intIdAbility]}
+            }
         }
     }
-}
-```
-
-### `db.abilities`
-> Sub-profile collection containing an ability set.
-```json
-{
-    "main": IdAbility,
-    "subs": [IdAbility, IdAbility, IdAbility]
 }
 ```
