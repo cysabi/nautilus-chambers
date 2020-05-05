@@ -1,0 +1,16 @@
+
+type Mutation {
+    createProfile(discord: ID!  profile: ProfileInput!): ProfilePayload!
+    updateProfile(discord: ID!, profile: ProfileInput!): ProfilePayload!
+    deleteProfile(discord: ID!                        ): ProfilePayload!
+}
+
+type Query {
+    readProfile(discord: ID!): ProfilePayload
+}
+
+type ProfilePayload {
+    status: Boolean
+    profile: Profile
+    error: String
+}

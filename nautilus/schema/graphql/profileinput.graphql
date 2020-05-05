@@ -1,0 +1,45 @@
+input ProfileInput {
+    meta: MetaInput
+    status: StatusInput
+}
+
+# ProfileInput
+input MetaInput {
+    private: Boolean
+}
+
+input StatusInput {
+    ign: String
+    sw: Int
+    level: Int
+    rank: RankInput
+    gear: GearInput
+}
+
+# Status
+input RankInput {
+    sz: Int
+    rm: Int
+    tc: Int
+    cb: Int
+    sr: Int
+}
+
+input GearInput {
+    weapon: String
+    head: WearInput
+    clothes: WearInput
+    shoes: WearInput
+}
+
+# Gear
+input WearInput {
+    id: Int
+    abilities: AbilitiesInput
+}
+
+# Wear
+input AbilitiesInput {
+    main: Int
+    subs: [Int]
+}

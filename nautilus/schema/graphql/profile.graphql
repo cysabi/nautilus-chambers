@@ -1,0 +1,45 @@
+type Profile {
+    meta: Meta
+    status: Status
+}
+
+# Profile
+type Meta {
+    private: Boolean
+}
+
+type Status {
+    ign: String
+    sw: Int
+    level: Int
+    rank: Rank
+    gear: Gear
+}
+
+# Status
+type Rank {
+    sz: Int
+    rm: Int
+    tc: Int
+    cb: Int
+    sr: Int
+}
+
+type Gear {
+    weapon: String
+    head: Wear
+    clothes: Wear
+    shoes: Wear
+}
+
+# Gear
+type Wear {
+    id: Int
+    abilities: Abilities
+}
+
+# Wear
+type Abilities {
+    main: Int
+    subs: [Int]
+}
