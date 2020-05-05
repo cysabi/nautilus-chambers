@@ -8,17 +8,11 @@ query_type = QueryType()
 @query_type.field("readProfile")
 def resolve_read_profile(*_, **kwargs):
     """query readProfile"""
-    profile = utils.dbh.profiles.find_one({"discord": kwargs["discord"]})
-    payload = {}
+    profile = utils.dbh.profiles.find_one({'discord': kwargs['discord']})
 
-    # Check for errors
-    if profile is None:
-        payload['error'] = utils.dbh.errors['missing']
-
-    # All Good
-    else:
-        payload['profile'] = profile
-        utils.logger.debug("readProfile ran. ID: " + payload['profile']["_id"])
-
-    payload['status'] = True if not payload.get('error') else False
-    return payload
+    utils.logger.debug(f"queryProfile | _id={profile['_id']} | discord={profile['discord']}")
+    return {
+        "status": True,
+        "profile": profile,
+        "error": None,
+    }
