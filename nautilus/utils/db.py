@@ -1,5 +1,5 @@
 """Set up database client."""
-from . import env
+from . import env, deep
 
 if env.get("debug"):
     from mongomock import MongoClient
@@ -16,11 +16,33 @@ class DatabaseHandler:
         self.db = self.client["nautilus"]
         # Collections
         self.profiles = self.db["profiles"]
-        self.abilitysets = self.db["abilities"]
+
+    def find_profile(self, discord):
+        """Find a profile in the database."""
+        return self.profiles.find_one(discord)
+
+    def insert_profile(self, discord, profile):
+        """Insert a new profile into the database."""
+        profile = deep.update(self.empty_profile(), profile)
+        return self.profiles.insert_one({**profile, **self.by_id(discord)}).acknowledged, profile
+
+    def update_profile(self, discord, profile):
+        """Update a profile in the database."""
+        profile = deep.update(self.find_profile(discord), profile)
+        return self.profiles.replace_one(self.by_id(discord), profile).acknowledged, profile
+
+    def delete_profile(self, discord, profile):
+        """Delete a profile in the database."""
+        return self.profiles.delete_one(self.by_id(discord)).acknowledged, profile
+
+    @staticmethod
+    def by_id(discord):
+        """Return a query using discord as the _id."""
+        return {"_id": discord}
 
     @staticmethod
     def empty_profile():
-        """Create a new empty profile."""
+        """Return an empty profile."""
         return {
             "meta": {
                 "private": None
@@ -38,9 +60,18 @@ class DatabaseHandler:
                 },
                 "gear": {
                     "weapon": None,
-                    "head":    {"id": None, "abilities": None},
-                    "clothes": {"id": None, "abilities": None},
-                    "shoes":   {"id": None, "abilities": None}
+                    "head":    {
+                        "id": None,
+                        "abilities": {"main": None, "subs": [None]}
+                    },
+                    "clothes": {
+                        "id": None,
+                        "abilities": {"main": None, "subs": [None]}
+                    },
+                    "shoes":   {
+                        "id": None,
+                        "abilities": {"main": None, "subs": [None]}
+                    }
                 }
             }
         }
