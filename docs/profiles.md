@@ -10,7 +10,7 @@ Information surrounding these objects remain completely constant, and therefore,
 Instead, an ID representing the object is stored in the database.
 The IDs used are identical to the ones that can be found on [loadout.ink](https://github.com/selicia/selicia.github.io/tree/master/en_US/data)'s source catalog.
 
-In practice, I have compiled each type [here](https://gist.github.com/LeptoFlare), modified for easy conversion.
+In practice, I have compiled each type [here](https://gist.github.com/LeptoFlare/00bd27c4e27158bdc302ffccc2a91931), modified for easy conversion.
 
 Below are how these object types will be *referred* to on this page. They are stored as integers.
 
