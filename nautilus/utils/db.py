@@ -59,7 +59,10 @@ class DatabaseHandler:
                     "sr": None,
                 },
                 "gear": {
-                    "weapon": None,
+                    "weapon": {
+                        "id": None,
+                        "class": None,
+                    },
                     "head":    {
                         "id": None,
                         "abilities": {"main": None, "subs": [None]}

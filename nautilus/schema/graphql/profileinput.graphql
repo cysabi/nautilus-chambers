@@ -26,7 +26,7 @@ input RankInput {
 }
 
 input GearInput {
-    weapon: String
+    weapon: WeaponInput
     head: WearInput
     clothes: WearInput
     shoes: WearInput
@@ -36,6 +36,11 @@ input GearInput {
 input WearInput {
     id: Int
     abilities: AbilitiesInput
+}
+
+input WeaponInput {
+    id: Int
+    class: Int
 }
 
 # Wear

@@ -10,9 +10,10 @@ Information surrounding these objects remain completely constant, and therefore,
 Instead, an ID representing the object is stored in the database.
 The IDs used are identical to the ones that can be found on [loadout.ink](https://github.com/selicia/selicia.github.io/tree/master/en_US/data)'s object data source.
 
-In practice, these IDs are used when inserting or updating a profile.
-When reading a profile, the actual object data is returned.
+When using the API, these IDs are to be sent when inserting or updating a profile.
+However, when reading a profile, the actual object data from loadout.ink is returned.
 
+#### Data sources
 In order to help with parsing, json documents with the data on each object have been compiled.
 Recognizing this may prove helpful to others as well, the documents have been seperated from nautilus.
 These documents are located on a [Github Gist](https://gist.github.com/LeptoFlare/00bd27c4e27158bdc302ffccc2a91931).
@@ -45,7 +46,10 @@ Below are how these object types will be *referred* to on this page. They are ac
             "sr": int
         },
         "gear": {
-            "weapon": intIdWeapon,
+            "weapon": {
+                "id": intIdWeapon,
+                "class": int,
+            },
             "head": {
                 "id": intIdHead,
                 "abilities": {"main": intIdAbility, "subs": [intIdAbility]}
@@ -98,8 +102,11 @@ The integer representations used are identical to the ones found [here](https://
 ### Level
 
 Level is simply stored as an integer.
-
 `*levels` are represented by any number above 99. `100` represents `*1`. `105` represents `*6`
+
+### Weapon class
+the `weapons.json` document is split into classes, each with their own id.
+Actual weapon id's are only unique within the class, so the class id must also be stored.
 
 ### Sub abilities
 Sub abilities are stored as an array of `IdAbility`s.
@@ -108,3 +115,5 @@ There is a maximum of 3 items in the array.
 If there are less than 3 items in the array, missing items are blank.
 
 An item as `null` represents an ability that isn't blank, but not yet unlocked.
+
+
