@@ -13,7 +13,7 @@ The API is for discord bots. For more information and support, you can join the 
 - Syncronized user data from anywhere, no matter the bot.
 
 ## Usage
-_Documentation can be found at https://github.lepto.tech/nautilus-chambers._
+_Documentation can be found [here](https://github.lepto.tech/nautilus-chambers/docs)._
 ```python
 """A Python usage example."""
 import requests
