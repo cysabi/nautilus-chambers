@@ -33,14 +33,14 @@ input GearInput {
 }
 
 # Gear
-input WearInput {
-    id: Int
-    abilities: AbilitiesInput
-}
-
 input WeaponInput {
     id: Int
     class: Int
+}
+
+input WearInput {
+    id: Int
+    abilities: AbilitiesInput
 }
 
 # Wear

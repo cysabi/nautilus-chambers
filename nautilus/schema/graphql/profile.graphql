@@ -33,18 +33,18 @@ type Gear {
 }
 
 # Gear
-type Wear {
-    id: Int
-    abilities: Abilities
-}
-
 type Weapon {
     id: Int
     class: Int
 }
 
+type Wear {
+    id: Int
+    abilities: Abilities
+}
+
 # Wear
 type Abilities {
-    main: Int
-    subs: [Int]
+    main: AbilitiesData
+    subs: [AbilitiesData]
 }
