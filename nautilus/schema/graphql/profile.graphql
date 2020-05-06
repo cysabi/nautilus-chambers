@@ -39,7 +39,7 @@ type Weapon {
 }
 
 type Wear {
-    id: Int
+    data: WearData
     abilities: Abilities
 }
 

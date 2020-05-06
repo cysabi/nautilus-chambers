@@ -1,0 +1,13 @@
+type WearData {
+    brand: String
+    id: Int
+    image: String
+    localizedName: LocalizedName
+    main: String
+    name: String
+    splatnet: Int
+    stars: Int
+    unreleased: Boolean
+    splatnetShop: Boolean
+    fixed: Boolean
+}
