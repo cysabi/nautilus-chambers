@@ -39,11 +39,6 @@ class DatabaseHandler:
         return self.profiles.delete_one(self.by_id(discord)).acknowledged, profile
 
     @staticmethod
-    def get_abilities_json():
-        """Send a get request and return the abilities.json."""
-        return requests.get('https://gist.githubusercontent.com/LeptoFlare/00bd27c4e27158bdc302ffccc2a91931/raw/abilities.json').json()
-
-    @staticmethod
     def by_id(discord):
         """Return a query using discord as the _id."""
         return {"_id": discord}
@@ -71,7 +66,7 @@ class DatabaseHandler:
                         "id": None,
                         "class": None,
                     },
-                    "head":    {
+                    "head": {
                         "id": None,
                         "abilities": {"main": None, "subs": [None]}
                     },
@@ -79,7 +74,7 @@ class DatabaseHandler:
                         "id": None,
                         "abilities": {"main": None, "subs": [None]}
                     },
-                    "shoes":   {
+                    "shoes": {
                         "id": None,
                         "abilities": {"main": None, "subs": [None]}
                     }
