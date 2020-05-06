@@ -1,0 +1,13 @@
+type LocalizedName {
+    de_DE: String
+    en_GB: String
+    en_US: String
+    es_ES: String
+    es_MX: String
+    fr_CA: String
+    fr_FR: String
+    it_IT: String
+    ja_JP: String
+    nl_NL: String
+    ru_RU: String
+}
