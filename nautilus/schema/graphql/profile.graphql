@@ -10,7 +10,7 @@ type Meta {
 
 type Status {
     ign: String
-    sw: Int
+    sw: String
     level: Int
     rank: Rank
     gear: Gear
