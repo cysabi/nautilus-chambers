@@ -10,16 +10,16 @@ wearshoes_type = ObjectType("WearShoes")
 @wearhead_type.field("data")
 def resolve_head(obj, _):
     """head: HeadData."""
-    return utils.object_data.get(obj['id'], 'head')
+    return utils.object_data.get_object_by_id('head', obj['id'])
 
 
 @wearclothes_type.field("data")
 def resolve_clothes(obj, _):
     """clothes: ClothesData."""
-    return utils.object_data.get(obj['id'], 'clothes')
+    return utils.object_data.get_object_by_id('clothes', obj['id'])
 
 
 @wearshoes_type.field("data")
 def resolve_shoes(obj, _):
     """shoes: ShoesData."""
-    return utils.object_data.get(obj['id'], 'shoes')
+    return utils.object_data.get_object_by_id('shoes', obj['id'])
