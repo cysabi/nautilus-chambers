@@ -1,4 +1,6 @@
 """Set up database client."""
+import requests
+
 from . import env, deep
 
 if env.get("debug"):
@@ -14,6 +16,7 @@ class DatabaseHandler:
         # Client & Database
         self.client = MongoClient("mongodb://mongo:27017/")
         self.db = self.client["nautilus"]
+
         # Collections
         self.profiles = self.db["profiles"]
 
@@ -34,6 +37,11 @@ class DatabaseHandler:
     def delete_profile(self, discord, profile):
         """Delete a profile in the database."""
         return self.profiles.delete_one(self.by_id(discord)).acknowledged, profile
+
+    @staticmethod
+    def get_abilities_json():
+        """Send a get request and return the abilities.json."""
+        return requests.get('https://gist.githubusercontent.com/LeptoFlare/00bd27c4e27158bdc302ffccc2a91931/raw/abilities.json').json()
 
     @staticmethod
     def by_id(discord):
