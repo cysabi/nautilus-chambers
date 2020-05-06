@@ -27,9 +27,9 @@ type Rank {
 
 type Gear {
     weapon: Weapon
-    head: Wear
-    clothes: Wear
-    shoes: Wear
+    head: WearHead
+    clothes: WearClothes
+    shoes: WearShoes
 }
 
 # Gear
@@ -38,7 +38,17 @@ type Weapon {
     class: Int
 }
 
-type Wear {
+type WearHead {
+    data: WearData
+    abilities: Abilities
+}
+
+type WearClothes {
+    data: WearData
+    abilities: Abilities
+}
+
+type WearShoes {
     data: WearData
     abilities: Abilities
 }
