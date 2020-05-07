@@ -10,7 +10,7 @@ input MetaInput {
 
 input StatusInput {
     ign: String
-    sw: Int
+    sw: String
     level: Int
     rank: RankInput
     gear: GearInput
