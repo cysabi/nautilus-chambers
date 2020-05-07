@@ -27,6 +27,9 @@ Below are how these object types will be *referred* to on this page. They are ac
 - `intIdWeapon`
 - `intIdAbility`
 
+#### `Limitations:`
+- IDs passed must point to an object that exists.
+
 ## Database profiles collection
 > A complete profile template as how it is stored in the database, with types for each key.
 ```json
@@ -74,17 +77,23 @@ If the rank is stored as a float, it represents an X rank where the float repres
 If the rank is stored as an integer, it represents a standard rank.
 The specific rank that integer represents is based on the (this data)[https://gist.githubusercontent.com/LeptoFlare/5bd16b21b7c9629eb78fdfb63e318201/raw/jp.json].
 
-The integer representations used are identical to the ones found [here](https://oatmealdome.me/blog/an-in-depth-look-at-the-splatoon-2-ranking-system/).
+#### `Limitations:`
+- If the value stored is an integer, it must be one of the values present on the data.
 
 ### Level
 
 Level is simply stored as an integer.
 `*levels` are represented by any number above 99. `100` represents `*1`. `105` represents `*6`
 
+#### `Limitations:`
+- The integer must be between 1 and 198.
+
 ### Weapon class
 the `weapons.json` document is split into classes, each with their own id.
 **Weapon** id's are only unique within the class, so the class id is also be stored.
 
+#### `Limitations:`
+- Both the weapon id **and** class id must be passed.
 
 ### Sub abilities
 Sub abilities are stored as an array of `IdAbility`s.
@@ -94,4 +103,6 @@ If there are less than 3 items in the array, missing items are blank.
 
 An item as `null` represents an ability that isn't blank, but not yet unlocked.
 
-
+#### `Limitations:`
+- The length of the array must be between 1 and 3.
+- All null values must appear after non-null values.
