@@ -4,8 +4,8 @@ from flask import Flask
 from nautilus import utils
 
 # Araidne
-from .schema import bindables
-types = load_schema_from_path("nautilus/schema/graphql")
+from .graphql import bindables
+types = load_schema_from_path("nautilus/graphql/schema")
 schema = make_executable_schema(types, *bindables)
 
 # Flask

@@ -34,9 +34,9 @@ class DatabaseHandler:
         profile = deep.update(self.find_profile(discord), profile)
         return self.profiles.replace_one(self.by_id(discord), profile).acknowledged, profile
 
-    def delete_profile(self, discord, profile):
+    def delete_profile(self, discord):
         """Delete a profile in the database."""
-        return self.profiles.delete_one(self.by_id(discord)).acknowledged, profile
+        return self.profiles.delete_one(self.by_id(discord)).acknowledged
 
     @staticmethod
     def by_id(discord):
