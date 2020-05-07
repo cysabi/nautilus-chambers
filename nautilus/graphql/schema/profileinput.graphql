@@ -34,8 +34,8 @@ input GearInput {
 
 # Gear
 input WeaponInput {
-    id: Int
-    class: Int
+    id: Int!
+    class: Int!
 }
 
 input WearInput {
