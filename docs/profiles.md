@@ -69,33 +69,10 @@ Below are how these object types will be *referred* to on this page. They are ac
 
 ### Ranks
 Ranks are stored as either an integer or a float.
-If the rank is stored as a float, it represents an X rank with the float representing the power.
+If the rank is stored as a float, it represents an X rank where the float represents the power.
 
-If the rank is stored as an integer, it represents a standard rank as seen here:
-> ```json
-> {
->     "C-": 1000,
->     "C": 1100,
->     "C+": 1200,
->     "B-": 1250,
->     "B": 1450,
->     "B+": 1550,
->     "A-": 1650,
->     "A": 1700,
->     "A+": 1800,
->     "S": 1900,
->     "S+0": 2000,
->     "S+1": 2080,
->     "S+2": 2120,
->     "S+3": 2160,
->     "S+4": 2200,
->     "S+5": 2230,
->     "S+6": 2260,
->     "S+7": 2290,
->     "S+8": 2320,
->     "S+9": 2350
-> }
-> ```
+If the rank is stored as an integer, it represents a standard rank.
+The specific rank that integer represents is based on the (this data)[https://gist.githubusercontent.com/LeptoFlare/5bd16b21b7c9629eb78fdfb63e318201/raw/jp.json].
 
 The integer representations used are identical to the ones found [here](https://oatmealdome.me/blog/an-in-depth-look-at-the-splatoon-2-ranking-system/).
 
@@ -106,7 +83,8 @@ Level is simply stored as an integer.
 
 ### Weapon class
 the `weapons.json` document is split into classes, each with their own id.
-Actual weapon id's are only unique within the class, so the class id must also be stored.
+**Weapon** id's are only unique within the class, so the class id is also be stored.
+
 
 ### Sub abilities
 Sub abilities are stored as an array of `IdAbility`s.
