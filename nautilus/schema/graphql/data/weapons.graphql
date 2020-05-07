@@ -1,0 +1,68 @@
+type WeaponData {
+    baseSpeed: Float
+    class: WeaponClassData
+    id: Int
+    image: String
+    inkPerShot: Float
+    inkSaver: String
+    level: Int
+    localizedName: LocalizedName
+    maxDamage: Damage
+    minDamage: Damage
+    mpuMaxDamage: Damage
+    name: String
+    price: Int
+    shootingSpeed: String
+    shotUnit: String
+    special: String
+    specialCost: Int
+    speedLevel: String
+    stats: Stats
+    sub: String
+    type: String
+    dashSpeed: Float
+    horizontalInkPerShot: Float
+    horizontalSwingMoveSpeed: Float
+    inkPerShotRolling: Float
+    verticalInkPerShot: Float
+    verticalSwingMoveSpeed: Float
+    chargeSpeed: Float
+    firstRingBurstDuration: Int
+    secondRingBurstDuration: Int
+}
+
+type WeaponClassData {
+    id: Int
+    localizedName: LocalizedName
+    name: String
+    weapons: [WeaponData]
+}
+
+type Damage {
+    damage: Float
+    normal: Float
+    repeat: Float
+    direct: Float
+    explosion: Float
+    jumping: Float
+    rolling: Float
+    standing: Float
+    full: Float
+    partial: Float
+    first: Float
+    second: Float
+    third: Float
+    burst: Float
+    canopy: Float
+}
+
+type Stats {
+    damage: Int
+    fireRate: Int
+    range: Int
+    handling: Int
+    inkSpeed: Int
+    chargeSpeed: Int
+    mobility: Int
+    durability: Int
+}
