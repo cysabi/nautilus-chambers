@@ -10,7 +10,7 @@ type Query {
 }
 
 type ProfilePayload {
-    status: Boolean
+    status: Boolean!
     profile: Profile
     error: String
 }
