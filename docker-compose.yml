@@ -6,9 +6,9 @@ services:
     build: .
     image: nautilus-chambers:latest
     restart: always
+    ports:
+      - 5000:5000
 
   mongo:
     image: mongo
     restart: always
-    volumes:
-      - ./data/db:/data/db
