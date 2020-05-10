@@ -87,7 +87,7 @@ Ranks are stored as either an integer or a float.
 If the rank is stored as a float, it represents an X rank where the float represents the power.
 
 If the rank is stored as an integer, it represents a standard rank.
-The specific rank that integer represents is based on the (this data)[https://gist.githubusercontent.com/LeptoFlare/5bd16b21b7c9629eb78fdfb63e318201/raw/jp.json].
+The specific rank that integer represents is based on the [this data](https://gist.githubusercontent.com/LeptoFlare/5bd16b21b7c9629eb78fdfb63e318201/raw/jp.json).
 
 ##### `Specification:`
 - If the value stored is an integer, it must be one of the values present on the data.
