@@ -9,10 +9,12 @@ weapon_type = ObjectType("WeaponData")
 @gear_type.field("weapon")
 def resolve_weapon(obj, _):
     """weapon: WeaponData."""
-    return utils.object_data.get_object_by_id('weapons', obj['weapon']['class'], obj['weapon']['id'])
+    if obj['weapon']:
+        return utils.object_data.get_object_by_id('weapons', obj['weapon']['class'], obj['weapon']['id'])
 
 
 @weapon_type.field("class")
 def resolve_weapon_class(obj, _):
     """class: WeaponClassData."""
-    return utils.object_data.get_object_by_id('weapons', obj['class'])
+    if obj['weapon']:
+        return utils.object_data.get_object_by_id('weapons', obj['class'])
