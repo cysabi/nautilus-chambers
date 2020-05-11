@@ -12,5 +12,11 @@ type Query {
 type ProfilePayload {
     status: Boolean!
     profile: Profile
-    error: String
+    errors: [Error]
+}
+
+type Error {
+    loc: [String]
+    msg: String
+    type: String
 }

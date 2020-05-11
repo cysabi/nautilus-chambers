@@ -9,12 +9,7 @@ query_type = QueryType()
 def resolve_read_profile(*_, discord):
     """query readProfile"""
     utils.logger.debug(f"readProfile | discord={discord}")
-    payload = {}
-
     if not (error := utils.errors.check_for([utils.errors.missing], discord)):
-        payload['profile'] = utils.dbh.find_profile(discord)
-    else:
-        payload['error'] = error
+        return utils.dbh.find_profile(discord)
 
-    payload['status'] = payload.get('profile', None) is not None
-    return payload
+    return {"status": False, "errors": [error]}

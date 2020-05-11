@@ -22,21 +22,22 @@ class DatabaseHandler:
 
     def find_profile(self, discord):
         """Find a profile in the database."""
-        return self.profiles.find_one(discord)
+        profile = self.profiles.find_one(discord)
+        return {"status": bool(profile), "profile": profile}
 
     def insert_profile(self, discord, profile):
         """Insert a new profile into the database."""
         profile = deep.update(self.empty_profile(), profile)
-        return self.profiles.insert_one({**profile, **self.by_id(discord)}).acknowledged, profile
+        return {"profile": profile, "status": self.profiles.insert_one({**profile, **self.by_id(discord)}).acknowledged}
 
     def update_profile(self, discord, profile):
         """Update a profile in the database."""
-        profile = deep.update(self.find_profile(discord), profile)
-        return self.profiles.replace_one(self.by_id(discord), profile).acknowledged, profile
+        profile = deep.update(self.profiles.find_one(discord), profile)
+        return {"profile": profile, "status": self.profiles.replace_one(self.by_id(discord), profile).acknowledged}
 
     def delete_profile(self, discord):
         """Delete a profile in the database."""
-        return self.profiles.delete_one(self.by_id(discord)).acknowledged
+        return {"status": self.profiles.delete_one(self.by_id(discord)).acknowledged}
 
     @staticmethod
     def by_id(discord):

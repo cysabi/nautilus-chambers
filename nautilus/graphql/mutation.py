@@ -10,36 +10,39 @@ mutation_type = MutationType()
 def resolve_create_profile(*_, discord, profile):
     """mutation createProfile"""
     utils.logger.debug(f"createProfile | discord={discord}")
-    if not (error := utils.errors.check_for([utils.errors.exists], discord)):
-        payload = validate_profileinput(profile)
-        if payload['status'] is True:
-            payload['status'], payload['profile'] = utils.dbh.insert_profile(discord, profile)
-        return payload
-    else:
-        return {"status": False, "error": error}
+    errors = []
+    if error := utils.errors.check_for([utils.errors.exists], discord):
+        errors.append(error)
+    profile, validation_errors = validate_profileinput(profile)
+    if validation_errors:
+        errors += validation_errors
+    if not errors:
+        return utils.dbh.insert_profile(discord, profile)
+
+    return {"status": False, "errors": errors}
 
 
 @mutation_type.field("updateProfile")
 def resolve_update_profile(*_, discord, profile):
     """mutation updateProfile"""
     utils.logger.debug(f"updateProfile | discord={discord}")
-    if not (error := utils.errors.check_for([utils.errors.missing], discord)):
-        payload = validate_profileinput(profile)
-        if payload['status'] is True:
-            payload['status'], payload['profile'] = utils.dbh.update_profile(discord, profile)
-        return payload
-    else:
-        return {"status": False, "error": error}
+    errors = []
+    if error := utils.errors.check_for([utils.errors.missing], discord):
+        errors.append(error)
+    profile, validation_errors = validate_profileinput(profile)
+    if validation_errors:
+        errors += validation_errors
+    if not errors:
+        return utils.dbh.update_profile(discord, profile)
+    
+    return {"status": False, "errors": errors}
 
 
 @mutation_type.field("deleteProfile")
 def resolve_delete_profile(*_, discord):
     """mutation deleteProfile"""
     utils.logger.debug(f"deleteProfile | discord={discord}")
-    payload = {}
-
     if not (error := utils.errors.check_for([utils.errors.missing], discord)):
-        payload['status'] = utils.dbh.delete_profile(discord)
-    else:
-        payload['status'], payload['error'] = False, error
-    return payload
+        return utils.dbh.delete_profile(discord)
+
+    return {"status": False, "errors": [error]}

@@ -4,14 +4,11 @@ from . import errors
 from . import models
 
 
-def validate_profileinput(profile):
+def validate_profileinput(profile_raw):
     """Validate ProfileInput user input data."""
-    payload = {
-        'profile': None,
-        'error': None
-    }
+    profile, errs = None, []
     try:
-        payload['profile'] = models.ProfileInput(**profile)
+        profile = models.ProfileInput(**profile_raw).dict()
     except ValidationError as e:
-        payload['error'] = e.errors()[0]['msg']
-    return {**payload, 'status': not payload['error']}
+        errs = e.errors()
+    return profile, errs
