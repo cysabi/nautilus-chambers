@@ -25,13 +25,13 @@ class AbilitiesInput(BaseModel):
             return v
         if len(v) > 3:
             raise TypeError('Sub-abilities array has more than 3 items.')
-        elif False:
-            raise TypeError('Unlocked sub-abilities appear after locked ones.')
+        # if (non-None appears after None):
+        #     raise TypeError('Unlocked sub-abilities appear after locked ones.')
         for sub in v:
             if sub is not None:
                 if not (ability := get_object_by_id('abilities', sub)):
                     raise InvalidID(obj='abilities', id=sub)
-                elif exclusive := ability.get('exclusive'):
+                if exclusive := ability.get('exclusive'):
                     raise TypeError(f'Ability is exclusive. ({exclusive})')
         return v
 
@@ -85,7 +85,7 @@ class GearInput(BaseModel):
     def v_weapon(cls, v):
         if v is None:
             return v
-        elif not get_object_by_id('weapons', v['class'], v['id']):
+        if not get_object_by_id('weapons', v['class'], v['id']):
             raise InvalidID(obj='weapons', id=v)
         return v
 
@@ -122,7 +122,7 @@ class StatusInput(BaseModel):
     @validator('ign')
     def v_ign(cls, v):
         if v is None:
-            return v
+            return
         if not 1 <= len(v) <= 10:
             raise ValueError('IGN must be between 1 and 10 characters long.')
 
