@@ -1,5 +1,5 @@
 import re
-from typing import List, Optional
+from typing import List, Optional, Any
 
 from pydantic import BaseModel, validator
 
@@ -86,24 +86,26 @@ class GearInput(BaseModel):
         if v is None:
             return v
         if not get_object_by_id('weapons', v['class'], v['id']):
-            raise InvalidID(obj='weapons', id=v)
+            raise InvalidID(obj='weapons', id=f"{v['id']} and class ID: {v['class']}")
         return v
 
 
 def v_rank(v):
     if v is None:
         return v
+    if isinstance(v, float):
+        return v
     if not get_rank(value=v):
-        raise ValueError('Rank must be one of the possible powers.')
+        raise ValueError(f'Target power {v} does not correspond to a rank.')
     return v
 
 
 class RankInput(BaseModel):
-    sz: int = None
-    rm: int = None
-    tc: int = None
-    cb: int = None
-    sr: int = None
+    sz: Any = None
+    rm: Any = None
+    tc: Any = None
+    cb: Any = None
+    sr: Any = None
 
     v_sz = validator('sz', allow_reuse=True)(v_rank)
     v_rm = validator('rm', allow_reuse=True)(v_rank)

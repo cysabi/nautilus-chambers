@@ -18,11 +18,11 @@ type Status {
 
 # Status
 type Rank {
-    sz: Int
-    rm: Int
-    tc: Int
-    cb: Int
-    sr: Int
+    sz: RankValue
+    rm: RankValue
+    tc: RankValue
+    cb: RankValue
+    sr: RankValue
 }
 
 type Gear {

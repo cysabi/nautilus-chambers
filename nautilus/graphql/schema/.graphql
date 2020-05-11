@@ -20,3 +20,5 @@ type Error {
     msg: String
     type: String
 }
+
+scalar RankValue
