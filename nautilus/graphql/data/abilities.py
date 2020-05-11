@@ -14,4 +14,4 @@ def resolve_main(obj, _):
 @abilities_type.field("subs")
 def resolve_subs(obj, _):
     """subs: [AbilitiesData]."""
-    return [utils.object_data.get_object_by_id('abilities', i) for i in obj['subs']]
+    return [utils.object_data.get_object_by_id('abilities', i) for i in obj['subs']] if obj['subs'] else obj['subs']
