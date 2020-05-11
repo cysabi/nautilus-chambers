@@ -19,7 +19,7 @@ def get_rank(name: str = None, value: int = None):
     """Return the rank name or power from the json document with the corresponding id."""
     json_data = requests.get(f'https://gist.githubusercontent.com/LeptoFlare/5bd16b21b7c9629eb78fdfb63e318201/raw/jp.json').json()
     for n, v in json_data:
-        if name == n:
+        if n == name:
             return v
-        if value == v:
+        if v == value:
             return n
