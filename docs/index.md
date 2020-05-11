@@ -1,3 +1,3 @@
-# Welcome to the documentation for Nautilus
+### Table of Contents
 
 - #### [Profiles](profiles.md)
