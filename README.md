@@ -40,6 +40,5 @@ As always, distributed under the MIT license. See `LICENSE` for more information
 _[https://github.com/LeptoFlare/nautilus-chambers](https://github.com/LeptoFlare/nautilus-chambers)_
 
 <!-- markdown links & imgs -->
-
 [stars-shield]: https://img.shields.io/github/stars/LeptoFlare/nautilus-chambers.svg?style=social
 [license-shield]: https://img.shields.io/github/license/LeptoFlare/nautilus-chambers.svg?style=flat
