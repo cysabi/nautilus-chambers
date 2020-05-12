@@ -6,4 +6,4 @@ try:
         env = yaml.load(file, Loader=yaml.FullLoader)
 
 except FileNotFoundError:
-    raise EnvironmentError("Cannot find 'config.yml' in root, have you created one?")
+    env = {}
