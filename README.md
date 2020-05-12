@@ -30,6 +30,7 @@ import requests
    debug: true
    ```
 2. Run `docker-compose up --build` in the repository root.
+3. The api endpoint will be at `/graphql`.
 
 ---
 
