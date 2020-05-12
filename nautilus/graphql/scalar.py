@@ -4,7 +4,7 @@ rank_value = ScalarType("RankValue")
 
 @rank_value.serializer
 def serialize_rank(rank):
-    return rank
+    return str(rank)
 
 
 @rank_value.value_parser
