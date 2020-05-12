@@ -16,5 +16,5 @@ def resolve_weapon(obj, _):
 @weapon_type.field("class")
 def resolve_weapon_class(obj, _):
     """class: WeaponClassData."""
-    if obj['weapon']:
+    if obj['class']:
         return utils.object_data.get_object_by_id('weapons', obj['class'])
