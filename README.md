@@ -1,7 +1,6 @@
 # `nautilus-chambers`
 ![Stars][stars-shield]
 ![License][license-shield]
-# 
 
 Nautilus is a Public API/database holds Splatoon 2 profile data on users. Powered by Python, GraphQL, MongoDB, Flask, Ariadne, and Pydantic. Use this API with your discord bot to:
 - Store user data without the need of your own database.
