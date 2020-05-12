@@ -10,7 +10,7 @@ type Query {
 }
 
 type ProfilePayload {
-    status: Boolean!
+    status: RequestStatus!
     profile: Profile
     errors: [Error]
 }
@@ -22,3 +22,8 @@ type Error {
 }
 
 scalar RankValue
+
+enum RequestStatus {
+    SUCCESS
+    FALIURE
+}
