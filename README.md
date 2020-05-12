@@ -1,37 +1,44 @@
 # `nautilus-chambers`
-> Nautilus Chambers is a service/API for storing and synchronizing Splatoon 2 user profiles across multiple discord bots.
+> 🐚 A service/API for storing and synchronizing Splatoon 2 user profiles across multiple discord bots.
 
-![Tags][tag-image]
+![License][license-shield]
+![Stars][stars-shield]
+# <!-- ![Banner](banner.png) -->
 
-A Public API/database holds Splatoon 2 profile data on users. It uses Python, GraphQL, Flask, and MongoDB.
-The API is for discord bots. For more information and support, you can join the Discord *(link in the footnote of this readme)*.
+Nautilus is a Public API/database holds Splatoon 2 profile data on users. Powered by Python, GraphQL, MongoDB, Flask, Ariadne, and Pydantic. Use this API with your discord bot to:
+- Store user data without the need of your own database.
+- Synchronize user data from anywhere, no matter the bot.
 
-<!-- ![Header Image](header-image.png) -->
-
-## Features
-- Place to store user data without the need of your own database.
-- Syncronized user data from anywhere, no matter the bot.
-
-## Usage
-_Documentation can be found [here](https://github.lepto.tech/nautilus-chambers/docs)._
+## Usage <!-- Using the project directly -->
+_Documentation can me found [here](https://github.lepto.tech/nautilus-chambers/docs)._
+  
 ```python
-"""A Python usage example."""
 import requests
 
 # POST request to get data from api endpoint
-# Changes very frequently at this current stage in development.
+# Changes frequently at this current stage in development.
 # That's why there isn't actual code here for now.
 ```
-<!-- ![Example Output][example-output] -->
 
-## Footnote
-Find me - Discord: [`https://discord.gg/faUNrfP`](https://discord.gg/faUNrfP)   
-Support me - Patreon: [`https://www.patreon.com/leptoflare`](https://www.patreon.com/leptoflare)  
+## Contributing <!-- Using the source code -->
+1. Fork the repository and clone it.
+2. Make a new branch to submit your pull request from.
+
+### Running locally
+1. Create a `config.yml` in the repository root:
+   ```yml
+   debug: true
+   ```
+2. Run `docker-compose up --build` in the repository root.
+
+---
+
+Contact me · [**@LeptoFlare**](https://github.com/LeptoFlare) · [lepto.tech](https://lepto.tech/)
 
 As always, distributed under the MIT license. See `LICENSE` for more information.
 
-**[https://github.com/LeptoFlare/nautilus-chambers](https://github.com/LeptoFlare/nautilus-chambers)**
+_[https://github.com/LeptoFlare/nautilus-chambers](https://github.com/LeptoFlare/nautilus-chambers)_
 
-<!-- Markdown link & img dfn's -->
-[tag-image]: https://img.shields.io/github/license/LeptoFlare/nautilus-chambers.svg
-[example-output]: https://github.com/LeptoFlare/nautilus-chambers/example-output.png
+<!-- markdown links & imgs -->
+[stars-shield]: https://img.shields.io/github/stars/LeptoFlare/nautilus-chambers.svg?style=social
+[license-shield]: https://img.shields.io/github/license/LeptoFlare/nautilus-chambers.svg?style=flat
