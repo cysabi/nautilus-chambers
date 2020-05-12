@@ -31,7 +31,7 @@ import requests
 
 ---
 
-Contact me · [**@LeptoTech**](https://github.lepto.tech) · [lepto.tech](https://lepto.tech/)
+Contact me · [**@LeptoFlare**](https://github.com/LeptoFlare) · [lepto.tech](https://lepto.tech/)
 
 As always, distributed under the MIT license. See `LICENSE` for more information.
 
