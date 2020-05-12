@@ -1,5 +1,5 @@
-# :shell: `nautilus-chambers`
-> A service/API for storing and synchronizing Splatoon 2 user profiles across multiple discord bots.
+# `nautilus-chambers`
+> 🐚 A service/API for storing and synchronizing Splatoon 2 user profiles across multiple discord bots.
 
 ![License][license-shield]
 ![Stars][stars-shield]
