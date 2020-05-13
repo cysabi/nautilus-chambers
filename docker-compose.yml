@@ -7,7 +7,7 @@ services:
     image: nautilus-chambers:latest
     restart: always
     ports:
-      - 5000:5000
+      - 611:5000
 
   mongo:
     image: mongo
