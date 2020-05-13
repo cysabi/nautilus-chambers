@@ -127,6 +127,7 @@ class StatusInput(BaseModel):
             return
         if not 1 <= len(v) <= 10:
             raise ValueError('IGN must be between 1 and 10 characters long.')
+        return v
 
     @validator('sw')
     def v_sw(cls, v):
