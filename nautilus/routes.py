@@ -17,6 +17,15 @@ def graphql_playground():
 def graphql_server():
     """GraphQL queries are always sent as POST"""
     data = request.get_json()
+    auth_header = request.headers.get('Authorization')
+    auth_token = auth_header.split()[1] if auth_header else ''
+
+    try:
+        jwt_token = jwt.decode(auth_token, key=env.get('jwt_secret'))
+    except jwt.exceptions.InvalidTokenError:
+        return jsonify({"success": False, "message": "Invalid authentication token"}), 401
+
+    print(jwt_token)
 
     # Note: Passing the request to the context is optional.
     # In Flask, the current request is always accessible as flask.request
