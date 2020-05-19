@@ -1,8 +1,10 @@
 from ariadne import graphql_sync
 from ariadne.constants import PLAYGROUND_HTML
+import jwt
 from flask import request, jsonify
 
 from nautilus import app, schema
+from nautilus.utils import env
 
 
 @app.route("/graphql", methods=["GET"])
