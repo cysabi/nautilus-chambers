@@ -4,7 +4,7 @@ import jwt
 from flask import request, jsonify
 
 from nautilus import app, schema
-from nautilus.utils import env
+from nautilus.utils import env, logger
 
 
 @app.route("/graphql", methods=["GET"])
@@ -21,14 +21,11 @@ def graphql_server():
     auth_token = auth_header.split()[1] if auth_header else ''
 
     try:
-        jwt_token = jwt.decode(auth_token, key=env.get('jwt_secret'))
+        jwt_payload = jwt.decode(auth_token, key=env.get('jwt_secret'))
     except jwt.exceptions.InvalidTokenError:
-        return jsonify({"success": False, "message": "Invalid authentication token"}), 401
+        return jsonify({"errors": [{"message": "Invalid authorization token"}]}), 401
 
-    print(jwt_token)
-
-    # Note: Passing the request to the context is optional.
-    # In Flask, the current request is always accessible as flask.request
+    logger.info("JWT Payload: %s", jwt_payload)
     success, result = graphql_sync(
         schema, data, context_value=request, debug=app.debug
     )
