@@ -1,3 +1,3 @@
 ### Table of Contents
 
-- #### [Profiles](profiles.md)
+- #### [Profiles](profiles)
