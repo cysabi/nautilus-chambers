@@ -10,7 +10,7 @@ Nautilus is a Public API/database holds Splatoon 2 profile data on users. Powere
 - Synchronize user data from anywhere, no matter the bot.
 
 ## Usage <!-- Using the project directly -->
-_Documentation can me found [here](https://github.lepto.tech/nautilus-chambers)._
+_Documentation can me found [here](https://github.lepto.tech/nautilus-chambers/docs)._
   
 ```python
 import requests
