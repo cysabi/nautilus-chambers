@@ -8,6 +8,7 @@ services:
     restart: always
     ports:
       - 611:5000
+      - 9191:9191
 
   mongo:
     image: mongo
