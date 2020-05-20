@@ -1,9 +1,10 @@
+uwsgi
 pyyaml
-pyjwt
 requests
 
 # GraphQL
 ariadne
+pyjwt
 pydantic
 
 # Flask
