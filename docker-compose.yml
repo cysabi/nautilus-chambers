@@ -4,7 +4,6 @@ services:
 
   nautilus:
     build: .
-    image: nautilus-chambers:latest
     restart: always
     ports:
       - 611:5000
