@@ -1,0 +1,295 @@
+[
+  {
+    "cost": 55,
+    "damage": {
+      "Far": 30,
+      "Near": 150
+    },
+    "image": "../common/assets/img/subspe/Wsb_Bomb_Robo.png",
+    "inkSaver": "B",
+    "localizedName": {
+      "de_DE": "Robo-Bombe",
+      "en_GB": "Autobomb",
+      "en_US": "Autobomb",
+      "es_ES": "Robobomba",
+      "es_MX": "Robobomba",
+      "fr_CA": "Bombe robot",
+      "fr_FR": "Bombe robot",
+      "it_IT": "Robobomba",
+      "ja_JP": "\u30ed\u30dc\u30c3\u30c8\u30dc\u30e0",
+      "nl_NL": "Robobom",
+      "ru_RU": "\u0420\u043e\u0431\u043e\u0431\u043e\u043c\u0431",
+      "zh_HK": "\u30ed\u30dc\u30c3\u30c8\u30dc\u30e0 (\u81ea\u8d70\u5f0f)"
+    },
+    "name": "Autobomb"
+  },
+  {
+    "cost": 40,
+    "damage": {
+      "Direct": 60,
+      "Far": 25,
+      "Near": 35
+    },
+    "image": "../common/assets/img/subspe/Wsb_Bomb_Quick.png",
+    "inkSaver": "A",
+    "localizedName": {
+      "de_DE": "Insta-Bombe",
+      "en_GB": "Burst Bomb",
+      "en_US": "Burst Bomb",
+      "es_ES": "Bomba r\u00e1pida",
+      "es_MX": "Globo entintado",
+      "fr_CA": "Bombe ballon",
+      "fr_FR": "Bombe ballon",
+      "it_IT": "Granata",
+      "ja_JP": "\u30af\u30a4\u30c3\u30af\u30dc\u30e0",
+      "nl_NL": "Ballonbom",
+      "ru_RU": "\u0420\u0430\u0437\u0440\u044b\u0432\u043d\u0430\u044f \u0431\u043e\u043c\u0431\u0430",
+      "zh_HK": "\u30af\u30a4\u30c3\u30af\u30dc\u30e0 (\u6c34\u888b)"
+    },
+    "name": "Burst Bomb"
+  },
+  {
+    "cost": 70,
+    "damage": {
+      "Far": 30,
+      "Near": 150
+    },
+    "image": "../common/assets/img/subspe/Wsb_Bomb_Curling.png",
+    "inkSaver": "C",
+    "localizedName": {
+      "de_DE": "Curling-Bombe",
+      "en_GB": "Curling Bomb",
+      "en_US": "Curling Bomb",
+      "es_ES": "Bomba deslizante",
+      "es_MX": "Bomba deslizante",
+      "fr_CA": "Bombe curling",
+      "fr_FR": "Bombe curling",
+      "it_IT": "Bomba curling",
+      "ja_JP": "\u30ab\u30fc\u30ea\u30f3\u30b0\u30dc\u30e0",
+      "nl_NL": "Curlingbom",
+      "ru_RU": "\u041a\u0435\u0440\u043b\u0438\u043d\u0433-\u0431\u043e\u043c\u0431\u0430",
+      "zh_HK": "\u30ab\u30fc\u30ea\u30f3\u30b0\u30dc\u30e0 (\u6c37\u7403)"
+    },
+    "name": "Curling Bomb"
+  },
+  {
+    "cost": 60,
+    "damage": {
+      "Far": 35,
+      "Near": 50
+    },
+    "image": "../common/assets/img/subspe/Wsb_Bomb_Piyo.png",
+    "inkSaver": "B",
+    "localizedName": {
+      "de_DE": "Sprudel-Bombe",
+      "en_GB": "Fizzy Bomb",
+      "en_US": "Fizzy Bomb",
+      "es_ES": "Bomba carb\u00f3nica",
+      "es_MX": "Bomba carb\u00f3nica",
+      "fr_CA": "Bombe soda",
+      "fr_FR": "Bombe soda",
+      "it_IT": "Bomba a gassosa",
+      "ja_JP": "\u30bf\u30f3\u30b5\u30f3\u30dc\u30e0",
+      "nl_NL": "Bomblikje",
+      "ru_RU": "\u0421\u043e\u0434\u043e\u0432\u0430\u044f \u0431\u043e\u043c\u0431\u0430",
+      "zh_HK": ""
+    },
+    "name": "Fizzy Bomb"
+  },
+  {
+    "cost": 60,
+    "damage": {
+      "Far": 35,
+      "Near": 45
+    },
+    "image": "../common/assets/img/subspe/Wsb_TimerTrap.png",
+    "inkSaver": "D",
+    "localizedName": {
+      "de_DE": "Tintenmine",
+      "en_GB": "Ink Mine",
+      "en_US": "Ink Mine",
+      "es_ES": "Bomba Trampa",
+      "es_MX": "Mina de tinta",
+      "fr_CA": "Mine d'encre",
+      "fr_FR": "Mine",
+      "it_IT": "Mina",
+      "ja_JP": "\u30c8\u30e9\u30c3\u30d7",
+      "nl_NL": "Inktmijnen",
+      "ru_RU": "\u041c\u0438\u043d\u044b",
+      "zh_HK": "\u30c8\u30e9\u30c3\u30d7 (\u5730\u96f7)"
+    },
+    "name": "Ink Mine"
+  },
+  {
+    "cost": 45,
+    "image": "../common/assets/img/subspe/Wsb_PointSensor.png",
+    "inkSaver": "B",
+    "localizedName": {
+      "de_DE": "Detektor",
+      "en_GB": "Point Sensor",
+      "en_US": "Point Sensor",
+      "es_ES": "Rastreador",
+      "es_MX": "Rastreador",
+      "fr_CA": "D\u00e9tecteur",
+      "fr_FR": "D\u00e9tecteur",
+      "it_IT": "Cimice",
+      "ja_JP": "\u30dd\u30a4\u30f3\u30c8\u30bb\u30f3\u30b5\u30fc",
+      "nl_NL": "Detector",
+      "ru_RU": "\u041c\u0430\u0440\u043a\u0435\u0440 \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u044f",
+      "zh_HK": "\u30dd\u30a4\u30f3\u30c8\u30bb\u30f3\u30b5\u30fc (\u8ffd\u8de1\u5668)"
+    },
+    "name": "Point Sensor"
+  },
+  {
+    "cost": 60,
+    "image": "../common/assets/img/subspe/Wsb_Shield.png",
+    "inkSaver": "C",
+    "localizedName": {
+      "de_DE": "Tintenwall",
+      "en_GB": "Splash Wall",
+      "en_US": "Splash Wall",
+      "es_ES": "Tel\u00f3n de Tinta",
+      "es_MX": "Barricada",
+      "fr_CA": "Mur d'encre",
+      "fr_FR": "Mur d'encre",
+      "it_IT": "Muro di colore",
+      "ja_JP": "\u30b9\u30d7\u30e9\u30c3\u30b7\u30e5\u30b7\u30fc\u30eb\u30c9",
+      "nl_NL": "Inktgordijn",
+      "ru_RU": "\u0427\u0435\u0440\u043d\u0438\u043b\u044c\u043d\u044b\u0439 \u0437\u0430\u043d\u0430\u0432\u0435\u0441",
+      "zh_HK": "\u30b9\u30d7\u30e9\u30c3\u30b7\u30e5\u30b7\u30fc\u30eb\u30c9 (\u6c34\u7c3e)"
+    },
+    "name": "Splash Wall"
+  },
+  {
+    "cost": 70,
+    "damage": {
+      "Far": 30,
+      "Near": 180
+    },
+    "image": "../common/assets/img/subspe/Wsb_Bomb_Splash.png",
+    "inkSaver": "C",
+    "localizedName": {
+      "de_DE": "Klecksbombe",
+      "en_GB": "Splat Bomb",
+      "en_US": "Splat Bomb",
+      "es_ES": "Bomba b\u00e1sica",
+      "es_MX": "Plasbomba",
+      "fr_CA": "Bombe splash",
+      "fr_FR": "Bombe splash",
+      "it_IT": "Bomba splash",
+      "ja_JP": "\u30b9\u30d7\u30e9\u30c3\u30b7\u30e5\u30dc\u30e0",
+      "nl_NL": "Klodderbom",
+      "ru_RU": "\u0411\u0440\u044b\u0437\u0433\u0430\u044e\u0449\u0430\u044f \u0431\u043e\u043c\u0431\u0430",
+      "zh_HK": "\u30b9\u30d7\u30e9\u30c3\u30b7\u30e5\u30dc\u30e0 (\u4e09\u89d2\u5f62)"
+    },
+    "name": "Splat Bomb"
+  },
+  {
+    "cost": 60,
+    "image": "../common/assets/img/subspe/Wsb_Sprinkler.png",
+    "inkSaver": "D",
+    "localizedName": {
+      "de_DE": "Sprinkler",
+      "en_GB": "Sprinkler",
+      "en_US": "Sprinkler",
+      "es_ES": "Aspersor",
+      "es_MX": "Aspersor",
+      "fr_CA": "Gicleur",
+      "fr_FR": "Fontaine",
+      "it_IT": "Spruzzatore",
+      "ja_JP": "\u30b9\u30d7\u30ea\u30f3\u30af\u30e9\u30fc",
+      "nl_NL": "Inktsprinkler",
+      "ru_RU": "\u0420\u0430\u0441\u043f\u044b\u043b\u044f\u0442\u043e\u0440",
+      "zh_HK": "\u30b8\u30e3\u30f3\u30d7\u30d3\u30fc\u30b3\u30f3 (\u6dcb\u82b1\u5668)"
+    },
+    "name": "Sprinkler"
+  },
+  {
+    "cost": 75,
+    "image": "../common/assets/img/subspe/Wsb_Flag.png",
+    "inkSaver": "D",
+    "localizedName": {
+      "de_DE": "Sprungboje",
+      "en_GB": "Squid Beakon",
+      "en_US": "Squid Beakon",
+      "es_ES": "Baliza transportadora",
+      "es_MX": "Baliza",
+      "fr_CA": "Balise de saut",
+      "fr_FR": "Balise de saut",
+      "it_IT": "Trasferitore",
+      "ja_JP": "\u30b8\u30e3\u30f3\u30d7\u30d3\u30fc\u30b3\u30f3",
+      "nl_NL": "Springschotel",
+      "ru_RU": "\u041f\u0440\u044b\u0436\u043a\u043e\u0432\u044b\u0439 \u043c\u0430\u044f\u0447\u043e\u043a",
+      "zh_HK": "\u30b8\u30e3\u30f3\u30d7\u30d3\u30fc\u30b3\u30f3 (\u96f7\u9054\u6a19\u5fd7)"
+    },
+    "name": "Squid Beakon"
+  },
+  {
+    "cost": 70,
+    "damage": {
+      "Far": 30,
+      "Near": 180
+    },
+    "image": "../common/assets/img/subspe/Wsb_Bomb_Suction.png",
+    "inkSaver": "C",
+    "localizedName": {
+      "de_DE": "Haftbombe",
+      "en_GB": "Suction Bomb",
+      "en_US": "Suction Bomb",
+      "es_ES": "Bomba ventosa",
+      "es_MX": "Bomba pegajosa",
+      "fr_CA": "Bombe gluante",
+      "fr_FR": "Bombe gluante",
+      "it_IT": "Appiccibomba",
+      "ja_JP": "\u30ad\u30e5\u30fc\u30d0\u30f3\u30dc\u30e0",
+      "nl_NL": "Kleefbom",
+      "ru_RU": "\u0411\u043e\u043c\u0431\u0430 \u043d\u0430 \u043f\u0440\u0438\u0441\u043e\u0441\u043a\u0435",
+      "zh_HK": "\u30ad\u30e5\u30fc\u30d0\u30f3\u30dc\u30e0 (\u5438\u76e4)"
+    },
+    "name": "Suction Bomb"
+  },
+  {
+    "cost": 65,
+    "damage": {
+      "Far": 35,
+      "Near": 60
+    },
+    "image": "../common/assets/img/subspe/Wsb_Bomb_Tako.png",
+    "inkSaver": "C",
+    "localizedName": {
+      "de_DE": "",
+      "en_GB": "Torpedo",
+      "en_US": "Torpedo",
+      "es_ES": "",
+      "es_MX": "",
+      "fr_CA": "Bentorpille",
+      "fr_FR": "Bentorpille",
+      "it_IT": "Torpedinatore",
+      "ja_JP": "\u30c8\u30fc\u30d4\u30fc\u30c9",
+      "nl_NL": "Torpedobom",
+      "ru_RU": "\u0422\u043e\u0440\u043f\u0435\u0434\u043d\u0430\u044f \u0431\u043e\u043c\u0431\u0430",
+      "zh_HK": ""
+    },
+    "name": "Torpedo"
+  },
+  {
+    "cost": 60,
+    "image": "../common/assets/img/subspe/Wsb_PoisonFog.png",
+    "inkSaver": "B",
+    "localizedName": {
+      "de_DE": "Sepitox-Nebel",
+      "en_GB": "Toxic Mist",
+      "en_US": "Toxic Mist",
+      "es_ES": "Nebulizador",
+      "es_MX": "Nebulizador",
+      "fr_CA": "Brume toxique",
+      "fr_FR": "Brume toxique",
+      "it_IT": "Nebbia tossica",
+      "ja_JP": "\u30dd\u30a4\u30ba\u30f3\u30df\u30b9\u30c8",
+      "nl_NL": "Gifmist",
+      "ru_RU": "\u0415\u0434\u043a\u0438\u0439 \u0442\u0443\u043c\u0430\u043d",
+      "zh_HK": "\u30dd\u30a4\u30ba\u30f3\u30df\u30b9\u30c8 (\u6bd2\u9727)"
+    },
+    "name": "Toxic Mist"
+  }
+]
