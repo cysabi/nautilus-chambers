@@ -16,7 +16,7 @@ However, when reading a profile, the actual object data from loadout.ink is retu
 #### Data sources
 In order to help with parsing, json documents with the data on each object have been compiled.
 Recognizing this may prove helpful to others as well, the documents have been seperated from nautilus.
-These documents can be found in the [dumps](../dumps) section.
+These documents can be found in this [dumps section](../dumps/loadout-ink).
 Feel free to use these documents such that you find them helpful.
 
 Below are how these object types will be *referred* to on this page. They are actualy stored as integers.
