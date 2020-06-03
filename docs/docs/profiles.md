@@ -16,7 +16,7 @@ However, when reading a profile, the actual object data from loadout.ink is retu
 #### Data sources
 In order to help with parsing, json documents with the data on each object have been compiled.
 Recognizing this may prove helpful to others as well, the documents have been seperated from nautilus.
-These documents are located on a [Github Gist](https://gist.github.com/LeptoFlare/00bd27c4e27158bdc302ffccc2a91931).
+These documents can be found in the [dumps](../dumps) section.
 Feel free to use these documents such that you find them helpful.
 
 Below are how these object types will be *referred* to on this page. They are actualy stored as integers.
@@ -87,7 +87,7 @@ Ranks are stored as either an integer or a float.
 If the rank is stored as a float, it represents an X rank where the float represents the power.
 
 If the rank is stored as an integer, it represents a standard rank.
-The specific rank that integer represents is based on the [this data](https://gist.githubusercontent.com/LeptoFlare/5bd16b21b7c9629eb78fdfb63e318201/raw/jp.json).
+The specific rank that integer represents is based on the [this data](../dumps/rank-powers/jp.json).
 
 ##### `Specification:`
 - If the value stored is an integer, it must be one of the values present on the data.
