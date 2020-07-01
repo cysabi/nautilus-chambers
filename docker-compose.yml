@@ -19,12 +19,14 @@ services:
       - VALIDATION=http
       - ONLY_SUBDOMAINS=true
     volumes:
-      - ./data/config:/config
+      - ./var/letsencrypt/config:/config
+      - ./nginx.conf:/config/nginx/site-confs/nginx.conf
     ports:
+      - 80:80
       - 443:443
 
   mongo:
     image: mongo
     restart: always
     volumes:
-      - ./data/db:/data/db
+      - ./var/mongo/data/db:/data/db
