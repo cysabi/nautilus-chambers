@@ -13,17 +13,22 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf
     ports:
       - 80:80
-      - 443:443
 
   letsencrypt:
     image: linuxserver/letsencrypt
+    restart: unless-stopped
     environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
       - URL=lepto.tech
       - SUBDOMAINS=nautilus
+      - VALIDATION=http
       - ONLY_SUBDOMAINS=true
     volumes:
       - ./data/config:/config
-    restart: unless-stopped
+    ports:
+      - 443:443
 
   mongo:
     image: mongo
