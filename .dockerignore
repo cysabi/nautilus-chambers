@@ -5,6 +5,7 @@
 !config.yml
 !run.py
 !nautilus
+!docs/dumps
 !wsgi.ini
 
 **/__pycache__
