@@ -20,7 +20,7 @@ services:
       - ONLY_SUBDOMAINS=true
     volumes:
       - ./var/letsencrypt/config:/config
-      - ./nginx.conf:/config/nginx/site-confs/nginx.conf
+      - ./nginx.conf:/config/nginx/site-confs/nautilus.conf
     ports:
       - 80:80
       - 443:443
