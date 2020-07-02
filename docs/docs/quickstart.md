@@ -36,4 +36,4 @@
 
   You have sucessfully ran your first query!
 
-### 5. To explore other parts of the profile, see the [proflies](profiles) page.
+### 5. To explore other parts of the profile, see the [profiles](profiles) page.

@@ -4,7 +4,7 @@ Nautilus is a Public API/database holds Splatoon 2 profile data on users. Powere
 Please note that these docs are very much half-assed, I might actually try later.
 
 ### Documentation:
-The docs in order to get started using the api can be found here.
+You can get started with the api by following the docs here.
 - [Docs](docs)
 
 ### Data Dumps
