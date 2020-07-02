@@ -1,0 +1,10 @@
+*
+
+!LICENSE
+!requirements.txt
+!config.yml
+!run.py
+!nautilus
+!wsgi.ini
+
+**/__pycache__
