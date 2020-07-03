@@ -12,3 +12,8 @@ def validate_profileinput(profile_raw):
     except ValidationError as e:
         errs = e.errors()
     return profile, errs
+
+
+def validate_discord(snowflake):
+    """Validate a discord user id to make sure it follows some simple requirements."""
+    return len(snowflake) == 18 and snowflake.isdigit()

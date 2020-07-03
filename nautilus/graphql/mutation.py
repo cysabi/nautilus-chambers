@@ -1,7 +1,7 @@
 """Contains mutation resolvers."""
 from ariadne import MutationType
 from nautilus import utils
-from nautilus.validators import validate_profileinput
+from nautilus.validators import validate_profileinput, validate_discord
 
 mutation_type = MutationType()
 
@@ -14,6 +14,8 @@ def resolve_create_profile(*_, discord, profile):
     if error := utils.errors.check_for([utils.errors.exists], discord):
         errors.append(error)
     profile, validation_errors = validate_profileinput(profile)
+    if not validate_discord(discord):
+        validation_errors.append({"msg": "Discord ID must be a valid snowflake.", "type": "value_error"})
     if validation_errors:
         errors += validation_errors
     if not errors:
