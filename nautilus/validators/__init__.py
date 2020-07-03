@@ -16,4 +16,4 @@ def validate_profileinput(profile_raw):
 
 def validate_discord(snowflake):
     """Validate a discord user id to make sure it follows some simple requirements."""
-    return len(snowflake) == 18 and snowflake.isdigit()
+    return snowflake.isdigit() and len(snowflake) > 10
