@@ -3,9 +3,10 @@
 
 ![License][license-shield]
 ![Stars][stars-shield]
-# <!-- ![Banner](banner.png) -->
 
 > **This repository is archived.** I built this as a way to learn about web servers, nginx, graphql, api's, and http requests. However, it does not have much practical use. Thus, I have decided to freeze the project so it can be showcased as part of my portfolio.
+
+# <!-- ![Banner](banner.png) -->
 
 Nautilus is a Public API/database holds Splatoon 2 profile data on users. Powered by Python, GraphQL, MongoDB, Flask, Ariadne, and Pydantic. Use this API with your discord bot to:
 - Store user data without the need of your own database.
