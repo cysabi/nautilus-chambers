@@ -5,19 +5,42 @@
 ![Stars][stars-shield]
 # <!-- ![Banner](banner.png) -->
 
+> **This repository is archived.** I built this as a way to learn about web servers, nginx, graphql, api's, and http requests. However, it does not have much practical use. Thus, I have decided to freeze the project so it can be showcased as part of my portfolio.
+
 Nautilus is a Public API/database holds Splatoon 2 profile data on users. Powered by Python, GraphQL, MongoDB, Flask, Ariadne, and Pydantic. Use this API with your discord bot to:
 - Store user data without the need of your own database.
 - Synchronize user data from anywhere, no matter the bot.
 
 ## Usage <!-- Using the project directly -->
-_Documentation can me found [here](https://github.lepto.tech/nautilus-chambers/docs)._
-  
+_Documentation can me found [here](https://lepto.tech/nautilus-chambers/docs)._
+
 ```python
 import requests
 
-# POST request to get data from api endpoint
-# Changes frequently at this current stage in development.
-# That's why there isn't actual code here for now.
+query = """
+query {
+  readProfile(discord: 0) {
+    profile {
+      status {
+        gear {
+          weapon {
+            name
+          }
+        }
+      }
+    }
+    errors {
+      msg
+    }
+  }
+}
+"""
+
+resp = requests.post(
+  "https://nautilus.lepto.tech/graphql",
+  json={'query': query},
+  headers={"Authorization": "Bearer eyJhb...XVCJ9"}
+)
 ```
 
 ## Contributing <!-- Using the source code -->

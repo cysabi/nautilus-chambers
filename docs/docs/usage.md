@@ -5,6 +5,7 @@ You can modify the profiles database by sending requests to the graphql endpoint
 
 There is 1 query method:
 - `readProfile`
+
 There are 3 mutation methods:
 - `createProfile`
 - `updateProfile`
